@@ -5,7 +5,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-ZSH_DIR="$HOME/code/github.com/kawahito25/dotfiles/zsh" 
+ZSH_DIR=$DOTFILES_DIR/zsh
 
 # zshがディレクトリで、読み取り、実行、が可能なとき
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
@@ -18,4 +18,3 @@ fi
 
 # Load local (machine specific) config if exists
 [ -f ~/.zshrc.local ] && source ~/.zshrc.local
-

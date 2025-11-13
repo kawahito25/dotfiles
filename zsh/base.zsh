@@ -14,7 +14,7 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlightin
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # brew install ripgrep
-export RIPGREP_CONFIG_PATH=$HOME/code/github.com/kawahito25/dotfiles/.ripgreprc 
+export RIPGREP_CONFIG_PATH=$DOTFILES_DIR/.ripgreprc 
 
 # brew install bat
 export BAT_THEME=Coldark-Dark
@@ -23,7 +23,7 @@ export BAT_THEME=Coldark-Dark
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 # add path for dotfiles scripts
-export PATH="$HOME/code/github.com/kawahito25/dotfiles/bin:$PATH"
+export PATH="$DOTFILES_DIR/bin:$PATH"
 
 # Go のパスを通す
 export GOPATH="$HOME/go"

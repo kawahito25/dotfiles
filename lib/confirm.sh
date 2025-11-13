@@ -19,7 +19,7 @@
 #
 # 利用例:
 #
-# source ~/code/github.com/kawahito25/dotfiles/lib/confirm.sh
+# source $DOTFILES_DIR/lib/confirm.sh
 #
 # if confirm "本当に実行しても大丈夫ですか？" --default n; then
 #    echo "ユーザーの承認を得ました。処理を続行します。"
