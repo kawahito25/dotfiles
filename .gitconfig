@@ -1,0 +1,23 @@
+; =========================================================================
+; Git Common Settings (Dotfiles Repository)
+;
+; 【利用方法】
+; この共通設定を有効にするには、
+; ローカルのホームディレクトリにある ~/.gitconfig ファイルに
+; 以下の [include] セクションを追記してください。;
+; -------------------------------------------------------------------------
+; [include]
+;     path = ~/code/github.com/kawahito25/dotfiles/.gitconfig
+; -------------------------------------------------------------------------
+;
+; =========================================================================
+
+[ghq]
+    root = ~/code
+
+[core]
+    editor = nvim
+    excludesFile = ~/code/github.com/kawahito25/dotfiles/.gitignore_global
+
+[alias]
+    lg = log --graph
