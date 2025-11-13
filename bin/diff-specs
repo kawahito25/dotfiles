@@ -1,0 +1,37 @@
+#!/bin/sh
+
+base_commit=$(git merge-base HEAD main)
+
+targets=$(
+    git diff --name-only "$base_commit" HEAD |
+    sort -u |
+    # 変更されたファイル名を受け取り、対応するテストファイル名に変換する
+    awk '
+        /^app\// {
+            # app/ のパスを spec/ に変換し、拡張子を _spec.rb にする
+            # (例: app/models/user.rb -> spec/models/user_spec.rb)
+            gsub(/^app\//, "spec/");
+            gsub(/\.rb$/, "_spec.rb");
+            print;
+            next;
+        }
+        /spec\.rb$/ {
+            # 既に spec.rb で終わるファイル（テストファイル自身）はそのまま出力
+            print;
+            next;
+        }
+    ' |
+    # 生成されたテストファイルのパスが実際に存在するかを確認
+    xargs -r ls -d 2>/dev/null
+)
+
+if [ -z "$targets" ]; then
+    echo "No specs to run." >&2
+    exit 0
+else
+    echo "Target specs:" >&2
+    echo "$targets" | tr ' ' '\n' | sed 's/^/    /' >&2
+fi
+
+echo $targets | xargs bundle exec rspec
+

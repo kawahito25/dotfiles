@@ -22,6 +22,9 @@ export BAT_THEME=Coldark-Dark
 # brew install asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
+# add path for dotfiles scripts
+export PATH="$HOME/code/github.com/kawahito25/dotfiles/bin:$PATH"
+
 # Go のパスを通す
 export GOPATH="$HOME/go"
 export PATH="$GOPATH/bin:$PATH"
