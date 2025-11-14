@@ -5,6 +5,14 @@ opacity = 1.0
 startup_mode = "Maximized"
 padding = { x = 10, y = 10 }
 
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]
+
+[env]
+TERM = "xterm-256color"
+
 [font]
 size = 17.0
 
@@ -20,44 +28,4 @@ bindings = [
   # Command + F: 次の単語へ移動
   { key = "F", mods = "Command", chars = "\u001Bf" },
 ]
-
-# 3024 Night https://github.com/mbadolato/iTerm2-Color-Schemes/blob/d5f3d53548d79c7f9944c24707026d7d40adba8f/electerm/3024%20Night.txt#L4
-[colors]
-# Default colors (Primary)
-[colors.primary]
-background = '0x090300'
-foreground = '0xa5a2a2'
-bright_foreground = '0xf7f7f7'
-
-# Cursor colors
-[colors.cursor]
-text = '0x090300'
-cursor = '0xa5a2a2'
-
-# Normal colors (0-7)
-[colors.normal]
-black   = '0x090300'
-red     = '0xdb2d20'
-green   = '0x01a252'
-yellow  = '0xfded02'
-blue    = '0x01a0e4'
-magenta = '0xa16a94'
-cyan    = '0xb5e4f4'
-white   = '0xa5a2a2'
-
-# Bright colors (8-15)
-[colors.bright]
-black   = '0x5c5855'
-red     = '0xe8bbd0'
-green   = '0x47413f'
-yellow  = '0x4a4543'
-blue    = '0x807d7c'
-magenta = '0xd6d5d4'
-cyan    = '0xcdab53'
-white   = '0xf7f7f7'
-
-# Selection colors
-[colors.selection]
-background = '0x4a4543'
-foreground = '0xa5a2a2'
 
