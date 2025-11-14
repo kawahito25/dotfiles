@@ -5,7 +5,7 @@ return {
     lazy = false,
     config = function()
       require("catppuccin").setup({
-        transparent_background = true,
+        -- add configuration here
       })
       vim.cmd.colorscheme "catppuccin-mocha"
     end,
