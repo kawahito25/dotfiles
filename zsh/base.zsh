@@ -16,11 +16,11 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # brew install ripgrep
 export RIPGREP_CONFIG_PATH=$DOTFILES_DIR/.ripgreprc 
 
-# brew install bat
-export BAT_THEME=Coldark-Dark
-
 # brew install asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+
+# brew install bat
+export BAT_THEME="Catppuccin Mocha"
 
 # add path for dotfiles scripts
 export PATH="$DOTFILES_DIR/bin:$PATH"
