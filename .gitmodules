@@ -10,3 +10,6 @@
 [submodule "catppuccin/eza"]
 	path = catppuccin/eza
 	url = git@github.com:catppuccin/eza.git
+[submodule "catppuccin/lazygit"]
+	path = catppuccin/lazygit
+	url = git@github.com:catppuccin/lazygit.git
