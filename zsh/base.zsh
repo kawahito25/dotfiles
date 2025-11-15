@@ -1,8 +1,3 @@
-# ls コマンドカラー
-export LSCOLORS=exgxfxdacxDaDaxbadacex
-alias ll='ls -lGF'
-alias ls='ls -GF'
-
 # brew install powerlevel10k
 source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
