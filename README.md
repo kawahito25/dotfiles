@@ -2,7 +2,6 @@
 設定系ファイル
 
 ## やりたいこと
-- peco を fzf に置き換える
 - lazygit を tmux の popup で開くようにする
 - noice.nvim を調査
 

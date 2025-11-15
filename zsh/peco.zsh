@@ -9,13 +9,13 @@ setopt share_history
 
 
 # 過去に実行したコマンドを選択。ctrl-rにバインド
-function peco-select-history() {
-  BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
+function select-history() {
+  BUFFER=`history -n 1 | tac  | awk '{gsub(/[[:space:]]+$/, ""); if (!a[$0]++) print $0}' | fzf --query "$LBUFFER"`
   CURSOR=$#BUFFER
   zle reset-prompt
 }
-zle -N peco-select-history
-bindkey '^r' peco-select-history
+zle -N select-history
+bindkey '^r' select-history
 
 # cdr
 if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]]; then
@@ -28,15 +28,15 @@ if [[ -n $(echo ${^fpath}/chpwd_recent_dirs(N)) && -n $(echo ${^fpath}/cdr(N)) ]
 fi
 
 # search a destination from cdr list
-function peco-get-destination-from-cdr() {
+function fzf-get-destination-from-cdr() {
   cdr -l | \
   sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
-  peco --query "$LBUFFER"
+  fzf --query "$LBUFFER"
 }
 
-# peco + cdr → ctl + u
-function peco-cdr() {
-  local destination="$(peco-get-destination-from-cdr)"
+# fzf + cdr
+function fzf-cdr() {
+  local destination="$(fzf-get-destination-from-cdr)"
   if [ -n "$destination" ]; then
     BUFFER="cd $destination"
     zle accept-line
@@ -44,18 +44,18 @@ function peco-cdr() {
     zle reset-prompt
   fi
 }
-zle -N peco-cdr
-bindkey '^u' peco-cdr
+zle -N fzf-cdr
+bindkey '^u' fzf-cdr
 
 # peco + ghq
-function peco-src () {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
+function fzf-src () {
+  local selected_dir=$(ghq list -p | fzf --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
     zle accept-line
   fi
   zle clear-screen
 }
-zle -N peco-src
-bindkey '^G' peco-src
+zle -N fzf-src
+bindkey '^G' fzf-src
 
