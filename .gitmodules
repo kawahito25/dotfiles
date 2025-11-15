@@ -4,3 +4,6 @@
 [submodule "catppuccin/alacritty"]
 	path = catppuccin/alacritty
 	url = git@github.com:catppuccin/alacritty.git
+[submodule "catppuccin/tmux"]
+	path = catppuccin/tmux
+	url = git@github.com:catppuccin/tmux.git
