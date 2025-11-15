@@ -17,6 +17,9 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # brew install bat
 export BAT_THEME="Catppuccin Mocha"
 
+# brew install eza
+export EZA_CONFIG_DIR="$HOME/.config/eza"
+
 # add path for dotfiles scripts
 export PATH="$DOTFILES_DIR/bin:$PATH"
 

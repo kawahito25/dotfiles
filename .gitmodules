@@ -7,3 +7,6 @@
 [submodule "catppuccin/tmux"]
 	path = catppuccin/tmux
 	url = git@github.com:catppuccin/tmux.git
+[submodule "catppuccin/eza"]
+	path = catppuccin/eza
+	url = git@github.com:catppuccin/eza.git
