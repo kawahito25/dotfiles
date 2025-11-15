@@ -20,9 +20,6 @@ export BAT_THEME="Catppuccin Mocha"
 # brew install eza
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
-# brew install fzf
-source <(fzf --zsh)
-
 # brew install lazygit
 export LG_CONFIG_FILE="$(lazygit --print-config-dir)/config.yml,$DOTFILES_DIR/catppuccin/lazygit/themes-mergable/mocha/mauve.yml"
 

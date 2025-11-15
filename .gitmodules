@@ -13,3 +13,6 @@
 [submodule "catppuccin/lazygit"]
 	path = catppuccin/lazygit
 	url = git@github.com:catppuccin/lazygit.git
+[submodule "catppuccin/fzf"]
+	path = catppuccin/fzf
+	url = git@github.com:catppuccin/fzf.git
