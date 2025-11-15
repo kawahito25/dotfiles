@@ -1,4 +1,4 @@
-# Config for Powerlevel10k with lean (Catppuccin Macchiato) prompt style.
+# Config for Powerlevel10k with lean (Catppuccin Mocha) prompt style.
 #
 
 # Temporarily change options.
@@ -18,44 +18,44 @@
   # Zsh >= 5.1 is required.
   [[ $ZSH_VERSION == (5.<1->*|<6->.*) ]] || return
 
-  # Catppuccin Macchiato Palette for Powerlevel10k
+  # Catppuccin Mocha Palette for Powerlevel10k
   # This file defines the color palette used for the Mocha theme.
   
   # Core colors
-  typeset -g P10K_COLOR_BASE="#24273a"   # Base
-  typeset -g P10K_COLOR_MANTLE="#1e2030" # Mantle
-  typeset -g P10K_COLOR_CRUST="#181926"  # Crust
+  typeset -g P10K_COLOR_BASE="#1e1e2e"   # Base
+  typeset -g P10K_COLOR_MANTLE="#181825" # Mantle
+  typeset -g P10K_COLOR_CRUST="#11111b"  # Crust
   
   # Text and Subtext
-  typeset -g P10K_COLOR_TEXT="#cad3f5"     # Text
-  typeset -g P10K_COLOR_SUBTEXT1="#b8c0e0" # Subtext 1
-  typeset -g P10K_COLOR_SUBTEXT0="#a5adcb" # Subtext 0
+  typeset -g P10K_COLOR_TEXT="#cdd6f4"     # Text
+  typeset -g P10K_COLOR_SUBTEXT1="#bac2de" # Subtext 1
+  typeset -g P10K_COLOR_SUBTEXT0="#a6adc8" # Subtext 0
   
   # Overlays
-  typeset -g P10K_COLOR_OVERLAY2="#939ab7" # Overlay 2
-  typeset -g P10K_COLOR_OVERLAY1="#8087a2" # Overlay 1
-  typeset -g P10K_COLOR_OVERLAY0="#6e738d" # Overlay 0
+  typeset -g P10K_COLOR_OVERLAY2="#9399b2" # Overlay 2
+  typeset -g P10K_COLOR_OVERLAY1="#7f849c" # Overlay 1
+  typeset -g P10K_COLOR_OVERLAY0="#6c7086" # Overlay 0
   
   # Surfaces
-  typeset -g P10K_COLOR_SURFACE2="#5b6078" # Surface 2
-  typeset -g P10K_COLOR_SURFACE1="#494d64" # Surface 1
-  typeset -g P10K_COLOR_SURFACE0="#363a4f" # Surface 0
+  typeset -g P10K_COLOR_SURFACE2="#585b70" # Surface 2
+  typeset -g P10K_COLOR_SURFACE1="#45475a" # Surface 1
+  typeset -g P10K_COLOR_SURFACE0="#313244" # Surface 0
   
   # Accent colors
-  typeset -g P10K_COLOR_BLUE="#8aadf4"      # Blue
-  typeset -g P10K_COLOR_LAVENDER="#b7bdf8"  # Lavender
-  typeset -g P10K_COLOR_SAPPHIRE="#7dc4e4"  # Sapphire
-  typeset -g P10K_COLOR_SKY="#91d7e3"       # Sky
-  typeset -g P10K_COLOR_TEAL="#8bd5ca"      # Teal
-  typeset -g P10K_COLOR_GREEN="#a6da95"     # Green
-  typeset -g P10K_COLOR_YELLOW="#eed49f"    # Yellow
-  typeset -g P10K_COLOR_PEACH="#f5a97f"     # Peach
-  typeset -g P10K_COLOR_RED="#ed8796"       # Red
-  typeset -g P10K_COLOR_MAROON="#ee99a0"    # Maroon
-  typeset -g P10K_COLOR_PINK="#f5bde6"      # Pink
-  typeset -g P10K_COLOR_FLAMINGO="#f0c6c6"  # Flamingo
-  typeset -g P10K_COLOR_ROSEWATER="#f4dbd6" # Rosewater
-  typeset -g P10K_COLOR_MAUVE="#c6a0f6"     # Mauve
+  typeset -g P10K_COLOR_BLUE="#89b4fa"      # Blue
+  typeset -g P10K_COLOR_LAVENDER="#b4befe"  # Lavender
+  typeset -g P10K_COLOR_SAPPHIRE="#74c7ec"  # Sapphire
+  typeset -g P10K_COLOR_SKY="#89dceb"       # Sky
+  typeset -g P10K_COLOR_TEAL="#94e2d5"      # Teal
+  typeset -g P10K_COLOR_GREEN="#a6e3a1"     # Green
+  typeset -g P10K_COLOR_YELLOW="#f9e2af"    # Yellow
+  typeset -g P10K_COLOR_PEACH="#fab387"     # Peach
+  typeset -g P10K_COLOR_RED="#f38ba8"       # Red
+  typeset -g P10K_COLOR_MAROON="#eba0ac"    # Maroon
+  typeset -g P10K_COLOR_PINK="#f5c2e7"      # Pink
+  typeset -g P10K_COLOR_FLAMINGO="#f2cdcd"  # Flamingo
+  typeset -g P10K_COLOR_ROSEWATER="#f5e0dc" # Rosewater
+  typeset -g P10K_COLOR_MAUVE="#cba6f7"     # Mauve
 
   # The list of segments shown on the left. Fill it with the most important segments.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
@@ -405,18 +405,18 @@
     
     if (( $1 )); then
       # Styling for up-to-date Git status.
-      local       meta='%F{#c6a0f6}'     # default foreground
-      local      clean='%F{#c6a0f6}'   # green foreground
-      local   modified='%F{#eed49f}'  # yellow foreground
-      local  untracked='%F{#8aadf4}'   # blue foreground
-      local conflicted='%F{#ed8796}'  # red foreground
+      local       meta='%F{#cba6f7}'     # default foreground
+      local      clean='%F{#cba6f7}'   # green foreground
+      local   modified='%F{#f9e2af}'  # yellow foreground
+      local  untracked='%F{#89b4fa}'   # blue foreground
+      local conflicted='%F{#f38ba8}'  # red foreground
     else
       # Styling for incomplete and stale Git status.
-      local       meta='%F{#939ab7}'  # grey foreground
-      local      clean='%F{#939ab7}'  # grey foreground
-      local   modified='%F{#939ab7}'  # grey foreground
-      local  untracked='%F{#939ab7}'  # grey foreground
-      local conflicted='%F{#939ab7}'  # grey foreground
+      local       meta='%F{#9399b2}'  # grey foreground
+      local      clean='%F{#9399b2}'  # grey foreground
+      local   modified='%F{#9399b2}'  # grey foreground
+      local  untracked='%F{#9399b2}'  # grey foreground
+      local conflicted='%F{#9399b2}'  # grey foreground
     fi
 
     local res
@@ -528,7 +528,7 @@
   # Custom icon.
   typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION=
   # Custom prefix.
-  # typeset -g POWERLEVEL9K_VCS_PREFIX='%F{#b8c0e0}on '
+  # typeset -g POWERLEVEL9K_VCS_PREFIX='%F{#bac2de}on '
 
   # Show status of repositories of these types. You can add svn and/or hg if you are
   # using them. If you do, your prompt may become slow even when your current directory
@@ -589,7 +589,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%F{#b8c0e0}took '
+  # typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_PREFIX='%F{#bac2de}took '
 
   #######################[ background_jobs: presence of background jobs ]#######################
   # Don't show the number of background jobs.
@@ -970,7 +970,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_CONTEXT_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%F{#b8c0e0}with '
+  # typeset -g POWERLEVEL9K_CONTEXT_PREFIX='%F{#bac2de}with '
 
   ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # Python virtual environment color.
@@ -1362,7 +1362,7 @@
   POWERLEVEL9K_KUBECONTEXT_DEFAULT_CONTENT_EXPANSION+='${${:-/$P9K_KUBECONTEXT_NAMESPACE}:#/default}'
 
   # Custom prefix.
-  typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%F{#b8c0e0}at '
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PREFIX='%F{#bac2de}at '
 
 
   ################[ terraform: terraform workspace (https://www.terraform.io) ]#################
@@ -1592,7 +1592,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TOOLBOX_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_TOOLBOX_PREFIX='%F{#b8c0e0}in '
+  typeset -g POWERLEVEL9K_TOOLBOX_PREFIX='%F{#bac2de}in '
 
   ###############################[ public_ip: public IP address ]###############################
   # Public IP color.
@@ -1695,7 +1695,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_TIME_PREFIX='%F{#b8c0e0}at '
+  typeset -g POWERLEVEL9K_TIME_PREFIX='%F{#bac2de}at '
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
