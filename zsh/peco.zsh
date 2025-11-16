@@ -1,3 +1,9 @@
+# brew install fzf
+source <(fzf --zsh)
+
+# use catppuccin color theme
+source $DOTFILES_DIR/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
+
 # コマンド履歴件数
 HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
