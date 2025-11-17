@@ -5,7 +5,7 @@ source <(fzf --zsh)
 source $DOTFILES_DIR/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
 
 # append option set by catppuccin
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100%"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"
 
 # Customizing fzf options for completion
 export FZF_COMPLETION_DIR_OPTS="--preview 'eza -T -L2 --color=always --icons=always {}'"
