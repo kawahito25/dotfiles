@@ -14,9 +14,6 @@ export RIPGREP_CONFIG_PATH=$DOTFILES_DIR/.ripgreprc
 # brew install asdf
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
-# brew install bat
-export BAT_THEME="Catppuccin Mocha"
-
 # brew install eza
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
