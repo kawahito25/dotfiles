@@ -3,8 +3,7 @@
 
 ## やりたいこと
 - tmux の prefix + w のページを カスタマイズする
-- lazygit を tmux の popup で開くようにする
-- fzf のキーバインドを tmux の popup で開くようにする
+- --help をハイライト表示: https://github.com/sharkdp/bat?tab=readme-ov-file#highlighting---help-messages
 - [z](https://github.com/rupa/z)
 - noice.nvim を調査
 
