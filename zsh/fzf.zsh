@@ -4,7 +4,12 @@ source <(fzf --zsh)
 # use catppuccin color theme (FZF_DEFAULT_OPTS is set)
 source $DOTFILES_DIR/submodules/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
 
-# append option set by catppuccin
+# fzf-tab
+autoload -U compinit; compinit
+source $DOTFILES_DIR/submodules/fzf-tab/fzf-tab.plugin.zsh
+zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS} # @see https://github.com/Aloxaf/fzf-tab/issues/475#issuecomment-2402904112
+
+# append full screen options
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"
 
 # Customizing fzf options for completion

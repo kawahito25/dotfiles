@@ -16,3 +16,6 @@
 [submodule "catppuccin/fzf"]
 	path = submodules/catppuccin/fzf
 	url = git@github.com:catppuccin/fzf.git
+[submodule "submodules/fzf-tab"]
+	path = submodules/fzf-tab
+	url = git@github.com:Aloxaf/fzf-tab.git
