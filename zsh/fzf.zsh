@@ -55,7 +55,7 @@ fi
 function fzf-get-destination-from-cdr() {
   cdr -l | \
   sed -e 's/^[[:digit:]]*[[:blank:]]*//' | \
-  fzf --query "$LBUFFER"
+  fzf --no-sort --query "$LBUFFER"
 }
 
 # fzf + cdr
