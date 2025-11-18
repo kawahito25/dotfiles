@@ -8,11 +8,11 @@ RG_COMMAND='rg --color=always --line-number --no-heading --smart-case'
 
 case "$MODE" in
     dirs)
-        INITIAL_COMMAND='find * -type d'
+        INITIAL_COMMAND='fd -t d'
         INITIAL_PROMPT='Dirs> '
         ;;
     files)
-        INITIAL_COMMAND='find * -type f'
+        INITIAL_COMMAND='fd -t f'
         INITIAL_PROMPT='Files> '
         ;;
     content)
@@ -21,7 +21,7 @@ case "$MODE" in
         INITIAL_PROMPT='Content> '
         ;;
     all)
-        INITIAL_COMMAND='find *'
+        INITIAL_COMMAND='fd'
         INITIAL_PROMPT='ff> '
         ;;
     *)
@@ -37,9 +37,9 @@ eval "$INITIAL_COMMAND" | fzf --prompt "$INITIAL_PROMPT" \
              --ansi \
              --delimiter : \
              --header '╱ CTRL-A: All ╱ CTRL-D: Dirs ╱ CTRL-F: Files ╱ CTRL-G: Content ╱' \
-             --bind 'ctrl-a:change-prompt(ff> )+reload(find *)' \
-             --bind 'ctrl-d:change-prompt(Dirs> )+reload(find * -type d)' \
-             --bind 'ctrl-f:change-prompt(Files> )+reload(find * -type f)' \
+             --bind 'ctrl-a:change-prompt(ff> )+reload(fd)' \
+             --bind 'ctrl-d:change-prompt(Dirs> )+reload(fd -t d)' \
+             --bind 'ctrl-f:change-prompt(Files> )+reload(fd -t f)' \
              --bind "ctrl-g:change-prompt(Content> )+reload($RG_COMMAND {q} || true)" \
              --preview '
                  FILE_PATH=$(echo {} | cut -d: -f1);

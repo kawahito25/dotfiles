@@ -13,6 +13,9 @@ zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # for tmux
 # append full screen options
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"
 
+# use fd as default
+export FZF_DEFAULT_COMMAND='fd --type f'
+
 # Customizing fzf options for completion
 export FZF_COMPLETION_DIR_OPTS="--preview 'eza -T -L2 --color=always --icons=always {}'"
 export FZF_COMPLETION_PATH_OPTS="--walker file,follow,hidden --preview 'bat --color=always {}'"
