@@ -4,6 +4,7 @@
 ## やりたいこと
 - tmux の prefix + w のページを カスタマイズする
 - --help をハイライト表示: https://github.com/sharkdp/bat?tab=readme-ov-file#highlighting---help-messages
+- [fd](https://github.com/sharkdp/fd)
 - [z](https://github.com/rupa/z)
 - noice.nvim を調査
 
