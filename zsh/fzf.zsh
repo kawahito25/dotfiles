@@ -2,7 +2,7 @@
 source <(fzf --zsh)
 
 # use catppuccin color theme (FZF_DEFAULT_OPTS is set)
-source $DOTFILES_DIR/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
+source $DOTFILES_DIR/submodules/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
 
 # append option set by catppuccin
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"

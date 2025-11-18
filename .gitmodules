@@ -1,18 +1,18 @@
 [submodule "catppuccin/bat"]
-	path = catppuccin/bat
+	path = submodules/catppuccin/bat
 	url = https://github.com/catppuccin/bat
 [submodule "catppuccin/alacritty"]
-	path = catppuccin/alacritty
+	path = submodules/catppuccin/alacritty
 	url = git@github.com:catppuccin/alacritty.git
 [submodule "catppuccin/tmux"]
-	path = catppuccin/tmux
+	path = submodules/catppuccin/tmux
 	url = git@github.com:catppuccin/tmux.git
 [submodule "catppuccin/eza"]
-	path = catppuccin/eza
+	path = submodules/catppuccin/eza
 	url = git@github.com:catppuccin/eza.git
 [submodule "catppuccin/lazygit"]
-	path = catppuccin/lazygit
+	path = submodules/catppuccin/lazygit
 	url = git@github.com:catppuccin/lazygit.git
 [submodule "catppuccin/fzf"]
-	path = catppuccin/fzf
+	path = submodules/catppuccin/fzf
 	url = git@github.com:catppuccin/fzf.git

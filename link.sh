@@ -10,12 +10,12 @@ ln -sf $DOTFILES_DIR/nvim/ ~/.config/
 
 # bat theme of catppuccin
 mkdir -p "$(bat --config-dir)/themes"
-ln -sf $DOTFILES_DIR/catppuccin/bat/themes "$(bat --config-dir)/themes"
+ln -sf $DOTFILES_DIR/submodules/catppuccin/bat/themes "$(bat --config-dir)/themes"
 
 # eza theme of catppuccin
 if [ -n "$EZA_CONFIG_DIR" ]; then
   mkdir -p $EZA_CONFIG_DIR
-  ln -sf $DOTFILES_DIR/catppuccin/eza/themes/mocha/catppuccin-mocha-mauve.yml "$EZA_CONFIG_DIR/theme.yml"
+  ln -sf $DOTFILES_DIR/submodules/catppuccin/eza/themes/mocha/catppuccin-mocha-mauve.yml "$EZA_CONFIG_DIR/theme.yml"
 else
   echo "WARN: EZA_CONFIG_DIR not set. Skipping symbolic link creation."
 fi

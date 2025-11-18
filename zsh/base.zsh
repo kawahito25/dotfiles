@@ -18,7 +18,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export EZA_CONFIG_DIR="$HOME/.config/eza"
 
 # brew install lazygit
-export LG_CONFIG_FILE="$(lazygit --print-config-dir)/config.yml,$DOTFILES_DIR/catppuccin/lazygit/themes-mergable/mocha/mauve.yml"
+export LG_CONFIG_FILE="$(lazygit --print-config-dir)/config.yml,$DOTFILES_DIR/submodules/catppuccin/lazygit/themes-mergable/mocha/mauve.yml"
 
 # add path for dotfiles scripts
 export PATH="$DOTFILES_DIR/bin:$PATH"
