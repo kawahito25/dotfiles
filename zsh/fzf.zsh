@@ -8,6 +8,7 @@ source $DOTFILES_DIR/submodules/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
 autoload -U compinit; compinit
 source $DOTFILES_DIR/submodules/fzf-tab/fzf-tab.plugin.zsh
 zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS} # @see https://github.com/Aloxaf/fzf-tab/issues/475#issuecomment-2402904112
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # for tmux
 
 # append full screen options
 export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"
