@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# ff を実行し、選択結果（単一パスまたは rg の結果行）を取得
+selected_line=$(FF_DEFAULT_MODE=files ff "$@")
+
+if [ -z "$selected_line" ]; then
+    # 選択されなかった場合は何もしない
+    exit 0
+fi
+
+# Content モードの結果 (file:line:text) かどうかをチェック
+# 正規表現で、行が '任意の文字列:数字:任意の文字列' の形式であるかを確認
+if echo "$selected_line" | grep -q '^\(.\+\):[0-9]\+:\(.\+\)$'; then
+    # Content モードの結果の場合: ファイルパスと行番号を抽出
+    file_path=$(echo "$selected_line" | cut -d: -f1)
+    line_number=$(echo "$selected_line" | cut -d: -f2)
+    # Neovim を該当行にジャンプして起動
+    exec nvim "$file_path" "+$line_number"
+else
+    # File/Dirs モードの結果、または単一のファイルパスの場合
+    # Neovim をファイルパスで起動
+    exec nvim "$selected_line"
+fi
+

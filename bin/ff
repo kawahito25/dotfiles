@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+
+# FF_DEFAULT_MODE の値に応じて、初期コマンドとプロンプトを設定
+MODE="${FF_DEFAULT_MODE:-all}"  # 環境変数が設定されていなければ 'all' をデフォルトとする
+
+# rg コマンドの定義（fzfのreload用とプレビュー用で共有）
+RG_COMMAND='rg --color=always --line-number --no-heading --smart-case'
+
+case "$MODE" in
+    dirs)
+        INITIAL_COMMAND='find * -type d'
+        INITIAL_PROMPT='Dirs> '
+        ;;
+    files)
+        INITIAL_COMMAND='find * -type f'
+        INITIAL_PROMPT='Files> '
+        ;;
+    content)
+        # Contentモード: 起動時は空のrg検索を実行し、ユーザー入力でフィルタリングを開始させる
+        INITIAL_COMMAND="$RG_COMMAND '' || true"
+        INITIAL_PROMPT='Content> '
+        ;;
+    all)
+        INITIAL_COMMAND='find *'
+        INITIAL_PROMPT='ff> '
+        ;;
+    *)
+        # 不正な値が設定された場合、エラーを出力してスクリプトを終了
+        echo "エラー: FF_DEFAULT_MODE に不正な値が設定されています ('$MODE')" >&2
+        echo "利用可能な値: all, dirs, files, content" >&2
+        exit 1
+        ;;
+esac
+
+# 選択されたモードのリストをパイプで fzf に渡す
+eval "$INITIAL_COMMAND" | fzf --prompt "$INITIAL_PROMPT" \
+             --ansi \
+             --delimiter : \
+             --header '╱ CTRL-A: All ╱ CTRL-D: Dirs ╱ CTRL-F: Files ╱ CTRL-G: Content ╱' \
+             --bind 'ctrl-a:change-prompt(ff> )+reload(find *)' \
+             --bind 'ctrl-d:change-prompt(Dirs> )+reload(find * -type d)' \
+             --bind 'ctrl-f:change-prompt(Files> )+reload(find * -type f)' \
+             --bind "ctrl-g:change-prompt(Content> )+reload($RG_COMMAND {q} || true)" \
+             --preview '
+                 FILE_PATH=$(echo {} | cut -d: -f1);
+                 LINE_NUM=$(echo {} | cut -d: -f2);
+
+                 # ファイルパスが存在しない、または無効な場合は何もしない
+                 if [ ! -e "$FILE_PATH" ]; then exit 0; fi
+
+                 if [ -d "$FILE_PATH" ]; then
+                     eza -AT --color=always "$FILE_PATH";
+                 elif [ -f "$FILE_PATH" ]; then
+                     # Content検索結果なら行番号をハイライト。そうでなければ通常表示。
+                     if [[ "$LINE_NUM" =~ ^[0-9]+$ ]]; then
+                         bat --color=always --style=numbers --highlight-line "$LINE_NUM" --line-range :500 "$FILE_PATH";
+                     else
+                         bat --color=always --style=numbers --line-range :500 "$FILE_PATH";
+                     fi
+                 fi' \
+             --preview-window 'right:50%' "$@"
+
