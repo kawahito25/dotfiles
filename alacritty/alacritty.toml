@@ -8,7 +8,7 @@ padding = { x = 10, y = 10 }
 
 [general]
 import = [
-  "~/.config/catppuccin/alacritty/catppuccin-mocha.toml"
+  "$DOTFILES_DIR/catppuccin/alacritty/catppuccin-mocha.toml"
 ]
 
 [env]
