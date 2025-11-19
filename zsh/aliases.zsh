@@ -1,5 +1,5 @@
 alias cat='bat --paging=never'
 alias eza='LS_COLORS="" eza'
 alias ls='eza -F --icons=auto --hyperlink'
-alias lg='[ -n "$TMUX" ] && tmux display-popup -E -w 100% -h 100% -d "#{pane_current_path}" lazygit || lazygit'
+alias lg='[ -n "$TMUX" ] && tmux display-popup -E -w100% -h100% -d "#{pane_current_path}" "lazygit" || lazygit'
 alias nv='nvim'
