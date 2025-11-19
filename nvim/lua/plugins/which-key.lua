@@ -2,9 +2,14 @@ return {
   "folke/which-key.nvim",
   event = "VeryLazy",
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
+    -- presets: https://github.com/folke/which-key.nvim/blob/main/lua/which-key/presets.lua
+    win = {
+      width = math.huge,
+      height = { min = 4, max = 25 },
+      col = 0,
+      row = -1,
+      border = "rounded",
+    },
   },
   keys = {
     {
