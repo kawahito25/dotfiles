@@ -14,28 +14,17 @@ fancy-ctrl-z() {
             
             # jobs -s の出力 (例: [1]+  Stopped  vim) をFZFに入力
 	    # ctrl + z で閉じる（うっかり入力するとハングするため）
-            local job_token=$(echo "$suspended_jobs_list" | \
+            local job_id_token=$(echo "$suspended_jobs_list" | \
                 fzf \
                 --no-sort \
                 --prompt="Select Job (fg): " \
-                --select-1 \
-                --exit-0 \
-                --delimiter='[ ]+' \
-                --with-nth=3.. \
                 --accept-nth=1 \
 		--bind 'ctrl-z:abort' 
                 )
             
-            if [[ -n $job_token ]]; then
-                # FZFは [1]+ のようなトークン全体を返してくれるはずです。
-                # 例: job_token が "[1]+" のような形式
-                
-                # トークンから数字だけを取り出す (最も安全な方法)
-                # ${job_token//[!0-9]/} は Zsh の機能で非数字を削除します。
-                local job_id_number="${job_token//[^0-9]/}"
-                
-                # fg %N を実行
-                BUFFER="fg %${job_id_number}"
+            if [[ -n $job_id_token ]]; then
+		# job_id_token （e.g. [1]）から、1 を取り出す
+                BUFFER="fg %${job_id_token//[^0-9]/}"
                 zle accept-line
             fi
         fi
