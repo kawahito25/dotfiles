@@ -28,6 +28,8 @@ bindings = [
   { key = "B", mods = "Command", chars = "\u001Bb" }, 
   # Command + F: 次の単語へ移動
   { key = "F", mods = "Command", chars = "\u001Bf" },
+  # Command + z: ctrl + z
+  { key = "Z", mods = "Command", chars = "\u001a" },
 ]
 
 [[hints.enabled]]
