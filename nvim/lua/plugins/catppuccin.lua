@@ -12,8 +12,11 @@ return {
         },
 	integrations = {
           -- which-key.nvim: https://github.com/folke/which-key.nvim/blob/main/lua/which-key/colors.lua
-	  -- capuuccin: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/groups/integrations/which_key.lua
+	  -- catpuuccin: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/groups/integrations/which_key.lua
 	  which_key = true,
+
+	  -- catppuccin: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/groups/integrations/gitsigns.lua
+	  gitsigns = true,
 	}, 
 	custom_highlights = function(colors)
           return {
