@@ -3,11 +3,8 @@
 
 ## やりたいこと
 - zsh の機能を理解
-- tmux の prefix + w のページを カスタマイズする
-- --help をハイライト表示: https://github.com/sharkdp/bat?tab=readme-ov-file#highlighting---help-messages
-- fzf と docker
-- [fzf の Advanced を読む](https://github.com/junegunn/fzf/blob/master/ADVANCED.md)
-- [fd](https://github.com/sharkdp/fd)
+- neovim の機能を理解
+- fzf と docker / or Lazy Docker
 - [z](https://github.com/rupa/z)
 - noice.nvim を調査
 

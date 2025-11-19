@@ -1,3 +1,5 @@
+if true then return {} end
+
 -- @see https://github.com/folke/snacks.nvim/discussions/1701#discussioncomment-12934844
 local list_extend = function(where, what)
   return vim.list_extend(vim.deepcopy(where), what)
