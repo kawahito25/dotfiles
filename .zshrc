@@ -10,13 +10,15 @@ fi
 
 emulate zsh -c "$(direnv hook zsh)"
 
-ZSH_DIR=$DOTFILES_DIR/zsh
+# set options
+setopt auto_resume # リダイレクトを伴わない単一単語の単純コマンドを、既存ジョブの再開候補として扱う。
 
-# zshがディレクトリで、読み取り、実行、が可能なとき
+
+# source .zsh files
+ZSH_DIR=$DOTFILES_DIR/zsh
 if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
     # zshディレクトリより下にある、.zshファイルの分、繰り返す
     for file in ${ZSH_DIR}/**/*.zsh; do
-        # 読み取り可能ならば実行する
         [ -r $file ] && source $file
     done
 fi
