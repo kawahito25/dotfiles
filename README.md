@@ -8,6 +8,7 @@
 - [z](https://github.com/rupa/z)
 - noice.nvim を調査
 - Brewfile のバージョン管理
+- gh-dash
 
 ## 気になるリスト
 - [catpuccin tmux-pomodoro-plus](https://github.com/catppuccin/tmux/blob/main/docs/reference/status-line.md#pomodoro-module)
