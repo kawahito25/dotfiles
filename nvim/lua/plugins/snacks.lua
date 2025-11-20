@@ -2,6 +2,27 @@ return {
   "folke/snacks.nvim",
   lazy = false,
   opts = {
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = "header" },
+        { section = "startup", padding = 1.5 },
+        { section = "keys", padding = 1.5 },
+        { icon = " ", title = "Recent Files", section = "recent_files", indent = 2, padding = 1.5 },
+        {
+          icon = " ",
+          title = "Git Status",
+          section = "terminal",
+          enabled = function()
+            return Snacks.git.get_root() ~= nil
+          end,
+          cmd = "git status --short --branch --renames",
+          height = 5,
+          ttl = 5 * 60,
+          indent = 3,
+        },
+      },
+    },
     indent = { enabled = true, animate = { enabled = false } },
     picker = { enabled = true },
   },
