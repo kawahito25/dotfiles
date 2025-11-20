@@ -1,3 +1,12 @@
+-- 基本的な設定
+vim.opt.expandtab = true                 -- タブキーでスペースに展開
+vim.opt.shiftwidth = 4                   -- インデント操作 (>>など) の幅を4に設定
+vim.opt.tabstop = 4                      -- タブ文字 (\t) の表示幅を4に設定
+vim.opt.softtabstop = 4                  -- Backspaceなどで削除する際の幅を4に設定
+
+vim.opt.autoindent = true                -- 改行したときに前の行のインデントを引き継ぐ
+vim.opt.smartindent = true               -- 構文を考慮しインデントレベルを自動調整する
+
 require("config.lazy")
 
 -- fill gap between terminal and neovim --
