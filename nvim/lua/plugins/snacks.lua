@@ -1,10 +1,10 @@
-
 return {
   "folke/snacks.nvim",
+  lazy = false,
   opts = {
-    indent = { enabled = true },
-      picker = { enabled = true },
-    },
+    indent = { enabled = true, animate = { enabled = false } },
+    picker = { enabled = true },
+  },
   keys = {
     -- Top Pickers & Explorer
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart Find Files" },
@@ -21,5 +21,15 @@ return {
     { "<leader>fp", function() Snacks.picker.projects() end, desc = "Projects" },
     { "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent" },
   },
+  init = function()
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "VeryLazy",
+      callback = function()
+        -- Create some toggle mappings
+        Snacks.toggle.indent():map("<leader>ug")
+        Snacks.toggle.dim():map("<leader>uD")
+      end,
+    })
+  end,
 }
 
