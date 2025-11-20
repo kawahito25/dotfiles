@@ -11,7 +11,14 @@ fi
 emulate zsh -c "$(direnv hook zsh)"
 
 # set options
-setopt auto_resume # リダイレクトを伴わない単一単語の単純コマンドを、既存ジョブの再開候補として扱う。
+setopt auto_resume # リダイレクトを伴わない単一単語の単純コマンドを、既存ジョブの再開候補として扱う
+# setopt extended_history # history にタイムスタンプを記録。fzf で表示できないのでやめた @see https://github.com/junegunn/fzf/issues/1308
+setopt hist_ignore_all_dups # 過去に同じ履歴が存在するなら、古い履歴を削除し、重複させない
+setopt hist_ignore_space # 先頭に半角スペースを入れたコマンドは履歴に入らない（履歴に残したくない一時的なコマンドに便利）
+# setopt hist_reduce_blanks 改行も消えるので微妙だった
+setopt inc_append_history # コマンドの実行と同時に履歴に追加 
+setopt interactivecomments # コマンド実行時にコメントを使える（履歴からの検索キーワードとしても利用可能）
+setopt share_history # 複数のシェルでコマンド履歴をリアルタイムで共有する
 
 
 # source .zsh files

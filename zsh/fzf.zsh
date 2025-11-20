@@ -25,19 +25,6 @@ HISTFILE=$HOME/.zsh-history
 HISTSIZE=100000
 SAVEHIST=1000000
 
-# share .zshhistory
-# setopt inc_append_history
-# setopt share_history
-
-# 過去に実行したコマンドを選択。ctrl-rにバインド
-# function select-history() {
-  # BUFFER=`history -n 1 | tac  | awk '{gsub(/[[:space:]]+$/, ""); if (!a[$0]++) print $0}' | fzf --query "$LBUFFER"`
-  # CURSOR=$#BUFFER
-  # zle reset-prompt
-# }
-# zle -N select-history
-# bindkey '^r' select-history
-
 # CTRL-R
 export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
