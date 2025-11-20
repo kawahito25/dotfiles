@@ -30,12 +30,16 @@ fancy-ctrl-z() {
         fi
         
     else
-        # 3. ジョブが存在しない場合 (Suspend動作)
+        # 3-a. コマンドラインにテキストがある場合 (Suspend)
         if [[ $#BUFFER -ne 0 ]]; then
             zle push-input
             zle clear-screen
+            zle send-break
+        # 3-b. コマンドラインにテキストがない場合 (Neovim起動)
+        else
+            BUFFER="nvim" # **★ Neovim コマンドをバッファにセット**
+            zle accept-line # **★ バッファの内容を実行**
         fi
-        zle send-break
     fi
 }
 
