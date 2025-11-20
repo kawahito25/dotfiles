@@ -1,4 +1,8 @@
 -- 基本的な設定
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn = 'yes'
+
 vim.opt.expandtab = true -- タブキーでスペースに展開
 vim.opt.shiftwidth = 4 -- インデント操作 (>>など) の幅を4に設定
 vim.opt.tabstop = 4 -- タブ文字 (\t) の表示幅を4に設定
