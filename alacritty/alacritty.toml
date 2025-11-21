@@ -33,6 +33,9 @@ bindings = [
   { key = "Z", mods = "Command", chars = "\u001a" },
 ]
 
+[selection]
+save_to_clipboard = true
+
 [[hints.enabled]]
 command = "open" # On macOS
 hyperlinks = true
