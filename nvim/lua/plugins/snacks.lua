@@ -33,6 +33,26 @@ return {
         { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
         { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
         { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+        {
+            "<leader>g",
+            function()
+                Snacks.picker({
+                    finder = "proc",
+                    cmd = "ghq",
+                    args = { "list", "--full-path" },
+                    transform = function(item)
+                        item.file = item.text
+                        item.dir = true
+                    end,
+                    confirm = function(picker, item)
+                        picker:close()
+                        vim.cmd("cd " .. item.text)
+                        Snacks.dashboard.open()
+                    end,
+                })
+            end,
+            desc = "ghq projects",
+        },
         -- find
         { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
         {
