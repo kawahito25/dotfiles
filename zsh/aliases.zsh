@@ -10,6 +10,7 @@ alias glg='git log --oneline --graph --decorate'
 alias gad='git add .'
 alias gci='git commit'
 alias gcam='git commit --amend'
+alias gpu='git push'
 
 alias ls='eza -F --icons=auto --hyperlink'
 alias lg='[ -n "$TMUX" ] && tmux display-popup -E -w100% -h100% -d "#{pane_current_path}" "lazygit" || lazygit'
