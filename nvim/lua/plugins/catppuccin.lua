@@ -17,6 +17,11 @@ return {
 
                     -- catppuccin: https://github.com/catppuccin/nvim/blob/main/lua/catppuccin/groups/integrations/gitsigns.lua
                     gitsigns = true,
+
+                    snacks = {
+                        enabled = true,
+                        indent_scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
+                    }
                 },
                 custom_highlights = function(colors)
                     return {
