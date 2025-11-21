@@ -14,3 +14,8 @@
 - [catpuccin tmux-pomodoro-plus](https://github.com/catppuccin/tmux/blob/main/docs/reference/status-line.md#pomodoro-module)
 - [tmux-resurrect](https://github.com/tmux-plugins/tmux-resurrect)
 
+## Mac の設定
+- キーボード
+  - 書類ごとに入力ソースを自動で切り替える
+  - ￥を \ に変更
+
