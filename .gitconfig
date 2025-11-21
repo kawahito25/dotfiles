@@ -19,5 +19,3 @@
     editor = nvim
     excludesFile = ~/code/github.com/kawahito25/dotfiles/.gitignore_global
 
-[alias]
-    lg = log --graph
