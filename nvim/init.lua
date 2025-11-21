@@ -1,10 +1,10 @@
 -- 基本的な設定
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn = "yes"
 
 vim.opt.undofile = true
-vim.opt.undodir = '/tmp/vim_undodir'
+vim.opt.undodir = "/tmp/vim_undodir"
 
 vim.opt.expandtab = true -- タブキーでスペースに展開
 vim.opt.shiftwidth = 4 -- インデント操作 (>>など) の幅を4に設定
