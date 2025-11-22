@@ -22,6 +22,7 @@ return {
                         enabled = true,
                         indent_scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
                     },
+                    render_markdown = true,
                 },
                 custom_highlights = function(colors)
                     return {
