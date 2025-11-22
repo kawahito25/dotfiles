@@ -12,10 +12,24 @@
 ;
 ; =========================================================================
 
+[include]
+	path = ~/code/github.com/kawahito25/dotfiles/submodules/catppuccin/delta/catppuccin.gitconfig
+
 [ghq]
     root = ~/code
 
 [core]
     editor = nvim
     excludesFile = ~/code/github.com/kawahito25/dotfiles/.gitignore_global
+    pager = delta
 
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = catppuccin-mocha
+    navigate = true  # use n and N to move between diff sections
+    dark = true      # or light = true, or omit for auto-detection
+
+[merge]
+    conflictStyle = zdiff3
