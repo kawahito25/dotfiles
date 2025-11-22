@@ -12,7 +12,13 @@ return {
             },
         },
         indent = { enabled = true, animate = { enabled = false } },
-        picker = { enabled = true },
+        picker = {
+            enabled = true,
+            focus = "list",
+            matcher = {
+                frecency = true,
+            },
+        },
         scroll = { enabled = true },
         notifier = { enabled = true },
     },
