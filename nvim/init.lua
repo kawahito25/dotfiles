@@ -13,6 +13,8 @@ vim.opt.softtabstop = 4 -- Backspaceなどで削除する際の幅を4に設定
 vim.opt.autoindent = true -- 改行したときに前の行のインデントを引き継ぐ
 vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自動調整する
 
+vim.opt.conceallevel = 2
+
 require("config.lazy")
 
 -- fill gap between terminal and neovim --
