@@ -5,6 +5,7 @@
   "nvim": { "branch": "main", "commit": "da33755d00e09bff2473978910168ff9ea5dc453" },
   "nvim-treesitter": { "branch": "main", "commit": "bb83a676128d95c865e40ba71376d883bdadec14" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
+  "obsidian.nvim": { "branch": "main", "commit": "2cd08b58cd651aadc07aba126d0b2025d9217957" },
   "snacks.nvim": { "branch": "main", "commit": "fe7cfe9800a182274d0f868a74b7263b8c0c020b" },
   "which-key.nvim": { "branch": "main", "commit": "3aab2147e74890957785941f0c1ad87d0a44c15a" }
 }
