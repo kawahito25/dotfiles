@@ -14,6 +14,7 @@ return {
         indent = { enabled = true, animate = { enabled = false } },
         picker = { enabled = true },
         scroll = { enabled = true },
+        notifier = { enabled = true },
     },
     keys = {
         -- Top Pickers & Explorer
