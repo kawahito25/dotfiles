@@ -1,8 +1,8 @@
 return {
     "obsidian-nvim/obsidian.nvim",
     version = "*", -- recommended, use latest release instead of latest commit
+    dependencies = { "MeanderingProgrammer/render-markdown.nvim" }, -- 指定しないと挙動が怪しい
     ft = "markdown",
-    lazy = true,
     opts = {
         legacy_commands = false,
         workspaces = {
