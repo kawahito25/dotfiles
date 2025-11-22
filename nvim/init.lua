@@ -16,6 +16,7 @@ vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自�
 vim.opt.conceallevel = 2
 
 require("config.lazy")
+require("config.lsp")
 
 -- fill gap between terminal and neovim --
 -- @see https://github.com/neovim/neovim/issues/16572#issuecomment-1954420136
