@@ -4,6 +4,9 @@ return {
     dependencies = { "MeanderingProgrammer/render-markdown.nvim" }, -- 指定しないと挙動が怪しい
     ft = "markdown",
     opts = {
+        checkbox = {
+            order = { " ", "x" },
+        },
         legacy_commands = false,
         workspaces = {
             {
