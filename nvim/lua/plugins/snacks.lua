@@ -36,7 +36,7 @@ return {
         { "<leader>n",       function() Snacks.picker.notifications() end,   desc = "Notification History" },
         { "<leader>e",       function() Snacks.explorer() end,               desc = "File Explorer" },
         {
-            "<leader>g",
+            "<leader>gp",
             function()
                 Snacks.picker({
                     finder = "proc",
