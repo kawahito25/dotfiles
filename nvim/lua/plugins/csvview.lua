@@ -1,5 +1,6 @@
 return {
     "hat0uma/csvview.nvim",
+    ft = "csv",
     ---@module "csvview"
     ---@type CsvView.Options
     opts = {
@@ -19,4 +20,14 @@ return {
         },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+    config = function()
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "csv",
+            desc = "ファイルタイプが 'csv' の場合に csvview プラグインの機能を開始",
+            callback = function()
+                require("csvview").enable()
+            end,
+        })
+    end
+
 }
