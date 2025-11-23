@@ -18,6 +18,11 @@ return {
             matcher = {
                 frecency = true,
             },
+            sources = {
+                explorer = {
+                    auto_close = true
+                },
+            }
         },
         scroll = { enabled = true },
         notifier = { enabled = true },
