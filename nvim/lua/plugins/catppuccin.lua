@@ -30,7 +30,7 @@ return {
                         FloatBorder = { fg = colors.surface2, bg = colors.none },
 
                         -- @override https://github.com/hat0uma/csvview.nvim/blob/688bcc7437b577de000f71a2d406271c79e2a545/lua/csvview/config.lua#L278-L287
-                        CsvViewCol1 = { fg = colors.red },
+                        CsvViewCol1 = { fg = colors.maroon },
                         CsvViewCol2 = { fg = colors.peach },
                         CsvViewCol3 = { fg = colors.yellow },
                         CsvViewCol4 = { fg = colors.green },
