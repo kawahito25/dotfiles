@@ -1,10 +1,4 @@
-local servers = { 'lua_ls' }
-
-for _, v in pairs(servers) do
-    require('config.servers.' .. v)
-end
-
-vim.lsp.enable(servers)
+vim.lsp.enable({ 'lua_ls' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
 vim.api.nvim_create_autocmd('LspAttach', {
