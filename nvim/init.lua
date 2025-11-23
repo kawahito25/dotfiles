@@ -14,6 +14,7 @@ vim.opt.autoindent = true  -- 改行したときに前の行のインデント�
 vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自動調整する
 
 vim.opt.conceallevel = 2
+vim.opt.clipboard:append({ "unnamedplus" })
 
 require("config.lazy")
 require("config.lsp")
