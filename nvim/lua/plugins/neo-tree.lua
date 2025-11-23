@@ -8,7 +8,7 @@ return {
         "MunifTanjim/nui.nvim",
         "nvim-tree/nvim-web-devicons", -- optional, but recommended
     },
-    lazy = false, -- neo-tree will lazily load itself
+    lazy = false,                      -- neo-tree will lazily load itself
     opts = {
         filesystem = {
             filtered_items = {
