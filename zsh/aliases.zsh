@@ -13,7 +13,7 @@ alias gcm='git commit'
 alias gcma='git commit --amend'
 alias gpu='git push'
 
-alias ls='eza -F --icons=auto --hyperlink'
+alias ls='eza -F --icons=auto'
 alias tree='eza -T'
 alias lg='[ -n "$TMUX" ] && tmux display-popup -E -w100% -h100% -d "#{pane_current_path}" "lazygit" || lazygit'
 alias nv='nvim'
