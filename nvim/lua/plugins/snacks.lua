@@ -14,7 +14,7 @@ return {
         indent = { enabled = true, animate = { enabled = false } },
         picker = {
             enabled = true,
-            focus = "list",
+            focus = "input",
             matcher = {
                 frecency = true,
             },
