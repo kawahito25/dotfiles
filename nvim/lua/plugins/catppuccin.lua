@@ -23,10 +23,12 @@ return {
             render_markdown = true,
             lsp_trouble = true,
             blink_cmp = { style = 'bordered' },
+            ufo = true,
         },
         custom_highlights = function(colors)
             return {
                 FloatBorder = { fg = colors.surface2, bg = colors.none },
+                Folded = { fg = colors.text, bg = colors.surface0 },
 
                 -- @override https://github.com/hat0uma/csvview.nvim/blob/688bcc7437b577de000f71a2d406271c79e2a545/lua/csvview/config.lua#L278-L287
                 CsvViewCol1 = { fg = colors.maroon },

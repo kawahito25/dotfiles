@@ -16,10 +16,6 @@ vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自�
 vim.opt.conceallevel = 2
 vim.opt.clipboard:append({ "unnamedplus" })
 
--- 折りたたみの設定
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
-vim.opt.foldlevel = 99 -- デフォルトで折りたたまない
 
 require("config.lazy")
 require("config.lsp")
