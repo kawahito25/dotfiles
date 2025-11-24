@@ -20,6 +20,7 @@ setopt inc_append_history # コマンドの実行と同時に履歴に追加
 setopt interactivecomments # コマンド実行時にコメントを使える（履歴からの検索キーワードとしても利用可能）
 setopt share_history # 複数のシェルでコマンド履歴をリアルタイムで共有する
 
+export EDITOR=nvim
 
 # source .zsh files
 ZSH_DIR=$DOTFILES_DIR/zsh
