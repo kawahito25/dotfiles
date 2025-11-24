@@ -21,6 +21,7 @@ return {
                 indent_scope_color = "lavender", -- catppuccin color (eg. `lavender`) Default: text
             },
             render_markdown = true,
+            lsp_trouble = true,
             blink_cmp = { style = 'bordered' },
         },
         custom_highlights = function(colors)
