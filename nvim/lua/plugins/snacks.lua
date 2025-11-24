@@ -55,10 +55,8 @@ return {
             end,
             desc = "ghq projects",
         },
-        { "<leader>gp", function() Snacks.picker.gh_pr() end,                  desc = "GitHub Pull Requests (open)" },
-        { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
         -- find
-        { "<leader>fb", function() Snacks.picker.buffers() end,                desc = "Buffers" },
+        { "<leader>fb", function() Snacks.picker.buffers() end,   desc = "Buffers" },
         {
             "<leader>fc",
             function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end,
