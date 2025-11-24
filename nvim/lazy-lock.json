@@ -9,6 +9,7 @@
   "nvim-autopairs": { "branch": "master", "commit": "7a2c97cccd60abc559344042fefb1d5a85b3e33b" },
   "nvim-lspconfig": { "branch": "master", "commit": "30a2b191bccf541ce1797946324c9329e90ec448" },
   "nvim-treesitter": { "branch": "main", "commit": "3bbae7b32e0cc417438e54ec77eb7083e5f38c0f" },
+  "nvim-treesitter-endwise": { "branch": "master", "commit": "a61a9de7965324d4019fb1637b66bfacdcb01f51" },
   "nvim-treesitter-textobjects": { "branch": "main", "commit": "227165aaeb07b567fb9c066f224816aa8f3ce63f" },
   "nvim-web-devicons": { "branch": "master", "commit": "8dcb311b0c92d460fac00eac706abd43d94d68af" },
   "obsidian.nvim": { "branch": "main", "commit": "4065c233f618cdbfbf084d87e97317f8d019ef59" },
