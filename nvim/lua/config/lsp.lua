@@ -43,3 +43,19 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.diagnostic.config({
+    underline = false,
+    virtual_text = {
+        source = true,
+        severity = vim.diagnostic.severity.ERROR, -- インラインメッセージは error に限定（ 他の serviry はnvim のデフォルトの keymap <C-w>d で、確認する）
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = "",
+            [vim.diagnostic.severity.WARN] = "",
+            [vim.diagnostic.severity.INFO] = "",
+            [vim.diagnostic.severity.HINT] = "",
+        },
+    },
+})

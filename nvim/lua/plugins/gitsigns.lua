@@ -11,12 +11,11 @@ return {
     opts = {
         current_line_blame           = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
         current_line_blame_opts      = {
-            virt_text = true,
-            virt_text_pos = "eol",    -- 'eol' | 'overlay' | 'right_align'
-            delay = 500,              -- default: 1000
-            ignore_whitespace = true, -- default: false
-            virt_text_priority = 100,
-            use_focus = true,
+            virt_text         = true,
+            virt_text_pos     = "right_align", -- 'eol' | 'overlay' | 'right_align'
+            delay             = 0,             -- default: 1000
+            ignore_whitespace = true,          -- default: false
+            use_focus         = true,
         },
         current_line_blame_formatter = "<author> (<author_time:%R>) - <summary> [<abbrev_sha>]",
         signs                        = {
@@ -35,6 +34,5 @@ return {
             changedelete = { text = '±' },
             untracked    = { text = '?' },
         },
-        numhl                        = true,
     },
 }
