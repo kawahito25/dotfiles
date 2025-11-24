@@ -1,8 +1,6 @@
 return {
     "hat0uma/csvview.nvim",
     ft = "csv",
-    ---@module "csvview"
-    ---@type CsvView.Options
     opts = {
         parser = { comments = { "#", "//" } },
         keymaps = {
