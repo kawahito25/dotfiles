@@ -57,7 +57,7 @@ post_redirect_command =
 # fruity.
 # Screenshots at http://mycli.net/syntax
 # Can be further modified in [colors]
-syntax_style = default
+# syntax_style = default
 
 # Keybindings: Possible values: emacs, vi.
 # Emacs mode: Ctrl-A is home, Ctrl-E is end. All emacs keybindings are available in the REPL.
@@ -110,61 +110,75 @@ control_r = auto
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
-completion-menu.completion.current = 'bg:#ffffff #000000'
-completion-menu.completion = 'bg:#008888 #ffffff'
-completion-menu.meta.completion.current = 'bg:#44aaaa #000000'
-completion-menu.meta.completion = 'bg:#448888 #ffffff'
-completion-menu.multi-column-meta = 'bg:#aaffff #000000'
-scrollbar.arrow = 'bg:#003333'
-scrollbar = 'bg:#00aaaa'
-selected = '#ffffff bg:#6666aa'
-search = '#ffffff bg:#4444aa'
-search.current = '#ffffff bg:#44aa44'
-bottom-toolbar = 'bg:#222222 #aaaaaa'
-bottom-toolbar.off = 'bg:#222222 #888888'
-bottom-toolbar.on = 'bg:#222222 #ffffff'
-search-toolbar = 'noinherit bold'
+# 💡 Catppuccin (Mocha/Dark) Palette Reference:
+# Base: #1e1e2e | Text: #cdd6f4
+# Blue: #89b4fa (キーワード) | Mauve: #cba6f7 (プロンプト) | Green: #a6e3a1 (文字列)
+# Peach: #fab387 (データ型) | Teal: #94e2d5 (関数) | Red: #f38ba8 (エラー/エスケープ)
+
+# --- 補完メニュー (Completion Menu) ---
+completion-menu.completion.current = 'bg:#89b4fa #1e1e2e'  # Blue
+completion-menu.completion = 'bg:#45475a #cdd6f4'          # Surface 1
+completion-menu.meta.completion.current = 'bg:#b4befe #1e1e2e' # Lavender
+completion-menu.meta.completion = 'bg:#585b70 #cdd6f4'     # Surface 2
+completion-menu.multi-column-meta = 'bg:#313244 #cdd6f4'   # Surface 0
+scrollbar.arrow = 'bg:#11111b'                             # Crust
+scrollbar = 'bg:#89b4fa'                                   # Blue
+
+# --- 選択、検索 (Selection, Search) ---
+selected = '#1e1e2e bg:#cba6f7'                           # Mauve
+search = '#1e1e2e bg:#b4befe'                             # Lavender
+search.current = '#1e1e2e bg:#a6e3a1'                     # Green
+
+# --- ツールバー (Toolbars) ---
+bottom-toolbar = 'bg:#1e1e2e #7f849c'                     # Overlay 1
+bottom-toolbar.off = 'bg:#1e1e2e #6c7086'                  # Overlay 0
+bottom-toolbar.on = 'bg:#1e1e2e #cdd6f4'                   # Text
+
+# 検索/システム/引数 ツールバー
+search-toolbar = 'bg:#313244 #cdd6f4 bold'
 search-toolbar.text = 'nobold'
-system-toolbar = 'noinherit bold'
-arg-toolbar = 'noinherit bold'
+system-toolbar = 'bg:#313244 #cdd6f4 bold'
+arg-toolbar = 'bg:#313244 #cdd6f4 bold'
 arg-toolbar.text = 'nobold'
-bottom-toolbar.transaction.valid = 'bg:#222222 #00ff5f bold'
-bottom-toolbar.transaction.failed = 'bg:#222222 #ff005f bold'
 
-# style classes for colored table output
-output.header = "#00ff5f bold"
+# トランザクションステータス
+bottom-toolbar.transaction.valid = 'bg:#1e1e2e #a6e3a1 bold' # Green
+bottom-toolbar.transaction.failed = 'bg:#1e1e2e #f38ba8 bold' # Red
+
+# --- テーブル出力 (Table Output) ---
+output.header = "#a6e3a1 bold" # Green
 output.odd-row = ""
-output.even-row = ""
-output.null = "#808080"
+output.even-row = "bg:#181825" # Mantle
+output.null = "#6c7086"       # Overlay 0
 
-# SQL syntax highlighting overrides
-# sql.comment = 'italic #408080'
-# sql.comment.multi-line = ''
-# sql.comment.single-line = ''
-# sql.comment.optimizer-hint = ''
-# sql.escape = 'border:#FF0000'
-# sql.keyword = 'bold #008000'
-# sql.datatype = 'nobold #B00040'
-# sql.literal = ''
-# sql.literal.date = ''
-# sql.symbol = ''
-# sql.quoted-schema-object = ''
-# sql.quoted-schema-object.escape = ''
-# sql.constant = '#880000'
-# sql.function = '#0000FF'
-# sql.variable = '#19177C'
-# sql.number = '#666666'
-# sql.number.binary = ''
-# sql.number.float = ''
-# sql.number.hex = ''
-# sql.number.integer = ''
-# sql.operator = '#666666'
-# sql.punctuation = ''
-# sql.string = '#BA2121'
-# sql.string.double-quouted = ''
-# sql.string.escape = 'bold #BB6622'
-# sql.string.single-quoted = ''
-# sql.whitespace = ''
+# --- SQL構文ハイライト (SQL Syntax Highlighting) ---
+# プロンプト (追加・強調)
+prompt = '#cba6f7' # Mauve
+
+# コメント (目立たないようにOverlay 0を使用)
+sql.comment = 'italic #6c7086'
+# キーワード (例: SELECT, FROM)
+sql.keyword = 'bold #89b4fa' # Blueを太字で強調
+# データ型 (例: INT, VARCHAR)
+sql.datatype = 'bold #fab387' # Peachを太字で強調
+# リテラル (例: TRUE, FALSE)
+sql.literal = '#cba6f7' # Mauve
+# 定数
+sql.constant = '#f2cdcd' # Flamingo
+# 関数
+sql.function = 'bold #94e2d5' # Tealを太字で強調
+# 変数
+sql.variable = '#f9e2af' # Yellow
+# 数値
+sql.number = '#89dceb' # Sky
+# 演算子 (例: +, -, =, >)
+sql.operator = '#cdd6f4' # Textに上げて目立たせる
+# 句読点 (例: ,, ;)
+sql.punctuation = '#cdd6f4' # Textに上げて目立たせる
+# 文字列 (例: 'string')
+sql.string = '#a6e3a1' # Green
+# エスケープ文字
+sql.string.escape = 'bold #f38ba8' # Red
 
 # Favorite queries.
 # You can add your favorite queries here. They will be available in the
