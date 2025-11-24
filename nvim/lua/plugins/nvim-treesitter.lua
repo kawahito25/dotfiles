@@ -4,6 +4,8 @@ return {
         lazy = false,
         branch = "main",
         build = ":TSUpdate",
+        highlight = { enable = true },
+        fold = { enable = true },
         dependencies = {
             "RRethy/nvim-treesitter-endwise",
         },
