@@ -5,9 +5,21 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-        if client:supports_method('textDocument/implementation') then
-            -- Create a keymap for vim.lsp.buf.implementation ...
+
+        -- keymaps
+        local function keymap(mode, lhs, rhs, opts)
+            -- デフォルトのオプションを設定
+            opts = opts or {}
+            opts.noremap = opts.noremap ~= false
+            opts.silent = opts.silent ~= false
+
+            -- 実際のAPI呼び出し
+            vim.api.nvim_buf_set_keymap(args.buf, mode, lhs, rhs, opts)
         end
+
+        -- default keymappings are here: https://neovim.io/doc/user/lsp.html#lsp-defaults
+        keymap('n', 'grd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Goto Definition" })
+
 
         -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
         -- if client:supports_method('textDocument/completion') then
