@@ -8,8 +8,10 @@ keybind = cmd+f=esc:f
 keybind = cmd+z=text:\x1A
 maximize = true
 theme = Catppuccin Mocha
-window-decoration = none
 window-padding-balance = true
 window-padding-x = 10
 window-padding-y = 10
+cursor-style-blink = false
+cursor-style = bar
+shell-integration-features = no-cursor
 
