@@ -21,6 +21,7 @@ setopt interactivecomments # コマンド実行時にコメントを使える（
 setopt share_history # 複数のシェルでコマンド履歴をリアルタイムで共有する
 
 export EDITOR=nvim
+bindkey -e
 
 # source .zsh files
 ZSH_DIR=$DOTFILES_DIR/zsh
