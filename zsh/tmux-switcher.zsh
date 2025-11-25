@@ -19,12 +19,12 @@ function tls() {
     windows=$(tmux list-windows -a -F "#{session_name}:#{window_index}:#{window_name}")
     if [ -z "$windows" ]; then
         echo 'No Sessions'
-        exit 0
+        return
     fi
 
     selected=$(echo "$windows" | fzf)
     if [ -z "$selected" ]; then
-        exit 0
+        return
     fi
 
     target_session=$(echo $selected | cut -d ':' -f 1)
