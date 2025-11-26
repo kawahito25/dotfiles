@@ -11,7 +11,7 @@ zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS} # @see https://github.com/A
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # for tmux
 
 # append full screen options
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full --bind 'ctrl-u:half-page-up,ctrl-d:half-page-down'"
 
 # use fd as default
 export FZF_DEFAULT_COMMAND='fd --type f'
