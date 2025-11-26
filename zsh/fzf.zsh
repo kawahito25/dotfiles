@@ -73,3 +73,12 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^G' fzf-src
 
+# tmux 
+my-tmux-window-switcher-widget() {
+  $DOTFILES_DIR/bin/tmux-switcher.sh
+  # zle redisplay
+}
+
+zle -N my-tmux-window-switcher-widget
+bindkey '^L' my-tmux-window-switcher-widget
+
