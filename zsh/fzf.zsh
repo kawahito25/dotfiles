@@ -73,12 +73,6 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^G' fzf-src
 
-# tmux 
-my-tmux-window-switcher-widget() {
-  $DOTFILES_DIR/bin/tmux-switcher.sh
-  # zle redisplay
-}
-
-zle -N my-tmux-window-switcher-widget
-bindkey '^L' my-tmux-window-switcher-widget
-
+# tmux
+# そのままスクリプトを実行すると、open terminal failed: not a terminal　のエラーが出るため、一度シェルに入力する
+bindkey -s '^L' "$DOTFILES_DIR/bin/tmux-switcher.sh"
