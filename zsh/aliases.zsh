@@ -13,7 +13,7 @@ alias glg='git log --oneline --graph --decorate'
 alias gad='git add'
 alias gcm='git commit'
 alias gcma='git commit --amend'
-alias gpu='git push'
+alias gpu='git push origin HEAD'
 
 alias ls='eza -F --icons=auto'
 alias tree='eza -T'
