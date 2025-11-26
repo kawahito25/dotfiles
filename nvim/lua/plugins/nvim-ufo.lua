@@ -29,6 +29,7 @@ end
 return {
     'kevinhwang91/nvim-ufo',
     dependencies = { 'kevinhwang91/promise-async' }, -- ufoの非同期処理に必要な依存関係
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     config = function()
         -- ここに nvim-ufo の設定を記述
         require('ufo').setup({
