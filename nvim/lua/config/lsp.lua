@@ -1,4 +1,4 @@
-vim.lsp.enable({ 'lua_ls', 'copilot' })
+vim.lsp.enable({ 'lua_ls', 'copilot', 'ruby_lsp' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
 vim.api.nvim_create_autocmd('LspAttach', {
