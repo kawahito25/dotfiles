@@ -1,6 +1,8 @@
 alias cat='bat --paging=never'
 alias eza='LS_COLORS="" eza'
 
+alias dlf='docker logs -f --tail=100'
+
 alias gf='git fetch'
 alias gst='git status -bs'
 alias gco='git checkout'
