@@ -75,4 +75,4 @@ bindkey '^G' fzf-src
 
 # tmux
 # そのままスクリプトを実行すると、open terminal failed: not a terminal　のエラーが出るため、一度シェルに入力する
-bindkey -s '^L' "$DOTFILES_DIR/bin/tmux-switcher.sh"
+bindkey -s '^@' "$DOTFILES_DIR/bin/tmux-switcher.sh"
