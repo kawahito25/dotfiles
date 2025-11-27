@@ -20,20 +20,8 @@ vim.opt.conceallevel = 2
 vim.cmd("cnoremap <C-p> <Up>")
 vim.cmd("cnoremap <C-n> <Down>")
 
--- クリップボード連携
-vim.opt.clipboard:append({ "unnamedplus" })
-
--- d (削除) では、クリップボードに保存しない
-vim.keymap.set({ 'n', 'v' }, 'd', '"_d', {})
-vim.keymap.set({ 'n', 'v' }, 'D', '"_D', {})
-
--- c (変更) では、クリップボードに保存しない
-vim.keymap.set({ 'n', 'v' }, 'c', '"_c', {})
-vim.keymap.set({ 'n', 'v' }, 'C', '"_C', {})
-
--- x (一文字削除)では、クリップボードに保存しない
-vim.keymap.set({ 'n', 'v' }, 'x', '"_x', {})
-vim.keymap.set({ 'n', 'v' }, 'X', '"_X', {})
+vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = "System Clipboard Yank" })
+vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = "System Clipboard Paste" })
 
 require("config.lazy")
 require("config.lsp")
