@@ -20,9 +20,6 @@ vim.opt.conceallevel = 2
 vim.cmd("cnoremap <C-p> <Up>")
 vim.cmd("cnoremap <C-n> <Down>")
 
-vim.keymap.set({ 'n', 'v' }, '<leader>y', '"+y', { desc = "System Clipboard Yank" })
-vim.keymap.set({ 'n', 'v' }, '<leader>p', '"+p', { desc = "System Clipboard Paste" })
-
 require("config.lazy")
 require("config.lsp")
 
