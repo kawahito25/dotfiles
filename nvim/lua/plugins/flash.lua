@@ -1,7 +1,27 @@
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
-    opts = {},
+    opts = {
+        jump = {
+            -- automatically jump when there is only one match
+            autojump = true,
+        },
+        modes = {
+            -- options used when flash is activated through
+            -- a regular search with `/` or `
+            search = {
+                -- when `true`, flash will be activated during regular search by default.
+                -- You can always toggle when searching with `require("flash").toggle()`
+                enabled = true,
+            },
+            -- options used when flash is activated through
+            -- `f`, `F`, `t`, `T`, `;` and `,` motions
+            char = {
+                -- show jump labels
+                jump_labels = true,
+            }
+        }
+    },
     keys = {
         { "s",     mode = { "n", "x", "o" }, function() require("flash").jump() end,              desc = "Flash" },
         { "S",     mode = { "n", "x", "o" }, function() require("flash").treesitter() end,        desc = "Flash Treesitter" },
