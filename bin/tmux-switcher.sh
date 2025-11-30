@@ -13,9 +13,10 @@ function save_history() {
 
 selected=$(
     tmux-list-fzf-options.sh |
-    awk -F: '{print $1":"$2":"$3": "$1"\t "$3}' |
-    fzf --tmux --delimiter=':' --with-nth=4 |
-    cut -d: -f1,2,3
+    awk -F: '{print " "$1"@ "$3"\t"$0}' |
+    column -s@ -t |
+    fzf --delimiter='\t' --with-nth=1 |
+    cut -d $'\t' -f2
 )
 
 if [ -z "$selected" ]; then
