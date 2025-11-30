@@ -4,7 +4,7 @@ local tmux_switch_history_path="$HOME/.dotfiles_tmux_history"
 touch "$tmux_switch_history_path"
 
 # tmuxのウィンドウリストを取得
-windows=$(tmux list-windows -a -F "#{session_name}:#{window_index}:#{window_name}")
+windows=$(tmux list-windows -a -F "#{session_name}:#{window_id}:#{window_name}")
 
 if [ -z "$windows" ]; then
     echo 'No Sessions'

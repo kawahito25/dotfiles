@@ -5,8 +5,8 @@ touch "$tmux_switch_history_path"
 
 selected=$(
     tmux-list-fzf-options.sh |
-    awk -F: '{print " "$1"@ "$3"\t"$0}' |
-    column -s@ -t |
+    awk -F: '{print " "$1"¥ "$3"\t"$0}' |
+    column -s¥ -t |
     fzf --delimiter='\t' --with-nth=1 |
     cut -d $'\t' -f2
 )
