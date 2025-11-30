@@ -11,7 +11,10 @@ function save_history() {
     mv "${tmux_switch_history_path}.tmp" "$tmux_switch_history_path"
 }
 
-selected=$(tmux-list-fzf-options.sh | fzf --tmux)
+selected=$(
+    tmux-list-fzf-options.sh |
+    fzf --tmux --delimiter=':' --with-nth=1,3
+)
 
 if [ -z "$selected" ]; then
     return
