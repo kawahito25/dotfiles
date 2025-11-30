@@ -25,6 +25,7 @@ if [ -z "$TMUX" ]; then
     save_history $selected
 else
     tmux switch-client -t "$target_session:$target_window_idx"
+    tmux refresh-client -S
     save_history $selected
 fi
 
