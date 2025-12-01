@@ -24,6 +24,14 @@ vim.cmd("cnoremap <C-n> <Down>")
 vim.keymap.set('n', '<C-W>|', '<Cmd>vsplit<CR>', { silent = true, desc = 'Vertical Split (custom)' })
 vim.keymap.set('n', '<C-W>-', '<Cmd>split<CR>', { silent = true, desc = 'Horizontal Split (custom)' })
 
+-- yank 後に対象をハイライトする
+vim.api.nvim_create_autocmd("TextYankPost", {
+    group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank({ timeout = 500, higroup = "Search" })
+    end,
+})
+
 require("config.lazy")
 require("config.lsp")
 
