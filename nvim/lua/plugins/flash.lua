@@ -4,7 +4,7 @@ return {
     opts = {
         jump = {
             -- automatically jump when there is only one match
-            autojump = true,
+            autojump = false,
         },
         modes = {
             -- options used when flash is activated through
