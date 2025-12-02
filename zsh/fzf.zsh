@@ -29,6 +29,7 @@ SAVEHIST=1000000
 export FZF_CTRL_R_OPTS="
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:#CDD6F4
+  --no-multi-line
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 # cdr
