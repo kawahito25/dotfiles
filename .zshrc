@@ -1,3 +1,6 @@
+# Load local (machine specific) config if exists
+[ -f ~/.zshrc.local ] && source ~/.zshrc.local
+
 # @see https://github.com/romkatv/powerlevel10k/issues/702#issuecomment-626222730
 emulate zsh -c "$(direnv export zsh)"
 
@@ -32,5 +35,3 @@ if [ -d $ZSH_DIR ] && [ -r $ZSH_DIR ] && [ -x $ZSH_DIR ]; then
     done
 fi
 
-# Load local (machine specific) config if exists
-[ -f ~/.zshrc.local ] && source ~/.zshrc.local
