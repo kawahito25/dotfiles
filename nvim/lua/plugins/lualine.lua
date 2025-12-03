@@ -13,9 +13,12 @@ return {
     "nvim-lualine/lualine.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
-    sections = {
-        lualine_b = {
-            { 'b:gitsigns_head', icon = '' },
-            { 'diff', source = diff_source }, },
+    opts = {
+        sections = {
+            lualine_b = {
+                { 'b:gitsigns_head', icon = '' },
+                { 'diff', source = diff_source },
+            },
+        },
     }
 }
