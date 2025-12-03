@@ -95,6 +95,8 @@ return {
         { "gao",        function() Snacks.picker.lsp_outgoing_calls() end,    desc = "C[a]lls Outgoing" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+        -- others
+        { "<leader>gb", function() Snacks.gitbrowse() end,                    desc = "Git Browse",            mode = { "n", "v" } },
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {
