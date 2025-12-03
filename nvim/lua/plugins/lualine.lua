@@ -15,6 +15,14 @@ return {
     event = "VeryLazy",
     opts = {
         sections = {
+            lualine_a = {
+                'mode',
+                {
+                    'searchcount',
+                    maxcount = 999,
+                    timeout = 500,
+                },
+            },
             lualine_b = {
                 { 'b:gitsigns_head', icon = '' },
                 { 'diff', source = diff_source },
