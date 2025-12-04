@@ -32,6 +32,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- ファイル書き込み前 (BufWritePre) に、末尾の空白を削除するコマンドを実行
+local group = vim.api.nvim_create_augroup("TidyOnWrite", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = group,
+    pattern = "*", -- すべてのファイルタイプに対して実行
+    command = [[%s/\s\+$//e]],
+})
+
 require("config.lazy")
 require("config.lsp")
 
