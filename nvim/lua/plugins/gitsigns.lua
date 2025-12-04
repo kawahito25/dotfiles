@@ -35,4 +35,8 @@ return {
             untracked    = { text = '?' },
         },
     },
+    keys = {
+        { "<leader>hs", function() require('gitsigns').stage_hunk() end, desc = "Stage / Unstage Current Hunks" },
+        { "<leader>hr", function() require('gitsigns').reset_hunk() end, desc = "Reset Current Hunks" },
+    },
 }
