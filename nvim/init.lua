@@ -15,6 +15,10 @@ vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自�
 
 vim.opt.conceallevel = 2
 
+-- diff
+vim.opt.fillchars = { diff = ' ' }
+vim.opt.diffopt:append("iwhite")
+
 -- Ctrl-p/n でコマンド履歴のフィルタリングまで行う。
 -- たとえば、:help としてこれらのキーを入力すると、help から始まる履歴だけ移動できる
 vim.cmd("cnoremap <C-p> <Up>")
