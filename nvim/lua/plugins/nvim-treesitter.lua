@@ -42,5 +42,12 @@ return {
             },
         },
     },
+    {
+        "nvim-treesitter/nvim-treesitter-context",
+        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+        opts = {
+            enabled = true,
+        }
+    }
     -- TODO: https://github.com/andymass/vim-matchup を入れる
 }

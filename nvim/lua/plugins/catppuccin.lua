@@ -24,6 +24,7 @@ return {
             lsp_trouble = true,
             blink_cmp = { style = 'bordered' },
             ufo = true,
+            treesitter_context = true,
         },
         custom_highlights = function(colors)
             return {
