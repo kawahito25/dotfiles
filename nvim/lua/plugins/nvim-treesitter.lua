@@ -77,7 +77,6 @@ return {
     {
         'Wansmer/treesj',
         dependencies = { 'nvim-treesitter/nvim-treesitter' },
-        lazy = false,
         config = function()
             require('treesj').setup({
                 --- Use default keymaps (<space>m - toggle, <space>j - join, <space>s - split)
