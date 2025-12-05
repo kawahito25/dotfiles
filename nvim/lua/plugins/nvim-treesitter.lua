@@ -73,5 +73,37 @@ return {
                 stopline = 500,
             }
         }
+    },
+    {
+        'Wansmer/treesj',
+        dependencies = { 'nvim-treesitter/nvim-treesitter' },
+        lazy = false,
+        config = function()
+            require('treesj').setup({
+                --- Use default keymaps (<space>m - toggle, <space>j - join, <space>s - split)
+                use_default_keymaps = false,
+                --- number If line after join will be longer than max value, node will not be formatted
+                max_join_length = 240,
+            })
+        end,
+        keys = {
+            -- p は pretty の略
+            -- { '<leader>pm', function() require('treesj').toggle() end, mode = 'n', desc = 'Toggle (treesj)' },
+            { '<leader>pj', function() require('treesj').join() end,  mode = 'n', desc = '(treesj)' },
+            { '<leader>ps', function() require('treesj').split() end, mode = 'n', desc = 'split (treesj)' },
+            {
+                '<leader>pS',
+                function()
+                    require('treesj').toggle({
+                        split = {
+                            ---all nested configured nodes will process according to their presets
+                            recursive = true
+                        }
+                    })
+                end,
+                mode = 'n',
+                desc = 'Split recursively (treesj)'
+            },
+        }
     }
 }
