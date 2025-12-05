@@ -29,12 +29,33 @@ return {
     },
     keys = {
         -- Top Pickers & Explorer
-        { "<leader><space>", function() Snacks.picker.smart() end,                 desc = "Smart Find Files" },
-        { "<leader>,",       function() Snacks.picker.buffers() end,               desc = "Buffers" },
-        { "<leader>/",       function() Snacks.picker.grep({ hidden = true }) end, desc = "Grep" },
-        { "<leader>:",       function() Snacks.picker.command_history() end,       desc = "Command History" },
-        { "<leader>.",       function() Snacks.picker.resume() end,                desc = "Resume" },
-        { "<leader>e",       function() Snacks.explorer() end,                     desc = "File Explorer" },
+        {
+            "<leader>@",
+            function() Snacks.picker.grep({ hidden = true }) end,
+            desc = "Grep",
+        },
+        {
+            "<leader>`",
+            function() Snacks.picker.grep({ hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
+            desc = "Grep in all projects",
+        },
+        {
+            "<leader>;",
+            function() Snacks.picker.grep_word({ hidden = true }) end,
+            desc = "Visual selection or word",
+            mode = { "n", "x" },
+        },
+        {
+            "<leader>+",
+            function() Snacks.picker.grep_word({ hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
+            desc = "Visual selection or word in all projects",
+            mode = { "n", "x" },
+        },
+        { "<leader><space>", function() Snacks.picker.smart() end,           desc = "Smart Find Files" },
+        { "<leader>,",       function() Snacks.picker.buffers() end,         desc = "Buffers" },
+        { "<leader>:",       function() Snacks.picker.command_history() end, desc = "Command History" },
+        { "<leader>.",       function() Snacks.picker.resume() end,          desc = "Resume" },
+        { "<leader>e",       function() Snacks.explorer() end,               desc = "File Explorer" },
         -- find
         {
             "<leader>fc",
