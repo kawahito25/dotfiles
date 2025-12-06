@@ -6,6 +6,7 @@ font-size = 15
 keybind = cmd+b=esc:b
 keybind = cmd+f=esc:f
 keybind = cmd+z=text:\x1A
+macos-option-as-alt = true
 maximize = true
 theme = Catppuccin Mocha
 window-padding-balance = true
