@@ -47,7 +47,10 @@ return {
                     fg = colors.peach,
                     underline = true,
                     bold = true,
-                }
+                },
+
+                -- Snacks indent
+                SnacksIndent = { fg = colors.surface2 }
             }
         end,
     },
