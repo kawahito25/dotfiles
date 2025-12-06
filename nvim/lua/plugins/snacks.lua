@@ -50,6 +50,14 @@ return {
                     p:find()
                 end,
             },
+            toggles = {
+                -- follow = "f",
+                -- ignored = "i",
+                -- modified = "m",
+                hidden = "󰘓",
+                regex = "󰑑",
+                search_dir = '',
+            },
         },
         scroll = { enabled = true },
         notifier = { enabled = true },
