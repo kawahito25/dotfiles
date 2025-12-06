@@ -22,7 +22,34 @@ return {
                 explorer = {
                     auto_close = true
                 },
-            }
+            },
+            win = {
+                input = {
+                    keys = {
+                        ["<a-d>"] = {
+                            "toggle_search_dir",
+                            mode = { "n", "i" },
+                        },
+                    },
+                },
+                list = {
+                    keys = {
+                        ["<a-d>"] = {
+                            "toggle_search_dir",
+                            mode = { "n", "i" },
+                        },
+                    }
+                },
+            },
+            actions = {
+                toggle_search_dir = function(p)
+                    local all_projects = "~/code/github.com"
+                    local cwd = vim.fs.normalize((vim.uv or vim.loop).cwd() or ".")
+                    local current = p:cwd()
+                    p:set_cwd(current == cwd and all_projects or cwd)
+                    p:find()
+                end,
+            },
         },
         scroll = { enabled = true },
         notifier = { enabled = true },
@@ -30,25 +57,14 @@ return {
     keys = {
         -- Top Pickers & Explorer
         {
-            "<leader>@",
+            "<leader>/",
             function() Snacks.picker.grep({ hidden = true, args = { '-P' } }) end,
             desc = "Grep",
-        },
-        {
-            "<leader>`",
-            function() Snacks.picker.grep({ title = "Grep in all projects", args = { '-P' }, hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
-            desc = "Grep in all projects",
         },
         {
             "<leader>;",
             function() Snacks.picker.grep_word({ hidden = true, args = { '-P' } }) end,
             desc = "Visual selection or word",
-            mode = { "n", "x" },
-        },
-        {
-            "<leader>+",
-            function() Snacks.picker.grep_word({ title = "Grep Word in all projects", hidden = true, args = { '-P' }, dirs = { "~/code/github.com/kawahito25" } }) end,
-            desc = "Visual selection or word in all projects",
             mode = { "n", "x" },
         },
         { "<leader><space>", function() Snacks.picker.smart() end,           desc = "Smart Find Files" },
