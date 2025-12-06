@@ -39,7 +39,15 @@ return {
                 CsvViewCol5 = { fg = colors.teal },
                 CsvViewCol6 = { fg = colors.sapphire },
                 CsvViewCol7 = { fg = colors.blue },
-                CsvViewCol8 = { fg = colors.mauve }
+                CsvViewCol8 = { fg = colors.mauve },
+
+                -- andymass/vim-matchup
+                MatchParen = {
+                    bg = colors.none,
+                    fg = colors.peach,
+                    underline = true,
+                    bold = true,
+                }
             }
         end,
     },
