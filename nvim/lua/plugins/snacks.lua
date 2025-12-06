@@ -31,23 +31,23 @@ return {
         -- Top Pickers & Explorer
         {
             "<leader>@",
-            function() Snacks.picker.grep({ hidden = true }) end,
+            function() Snacks.picker.grep({ hidden = true, args = { '-P' } }) end,
             desc = "Grep",
         },
         {
             "<leader>`",
-            function() Snacks.picker.grep({ hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
+            function() Snacks.picker.grep({ title = "Grep in all projects", args = { '-P' }, hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
             desc = "Grep in all projects",
         },
         {
             "<leader>;",
-            function() Snacks.picker.grep_word({ hidden = true }) end,
+            function() Snacks.picker.grep_word({ hidden = true, args = { '-P' } }) end,
             desc = "Visual selection or word",
             mode = { "n", "x" },
         },
         {
             "<leader>+",
-            function() Snacks.picker.grep_word({ hidden = true, dirs = { "~/code/github.com/kawahito25" } }) end,
+            function() Snacks.picker.grep_word({ title = "Grep Word in all projects", hidden = true, args = { '-P' }, dirs = { "~/code/github.com/kawahito25" } }) end,
             desc = "Visual selection or word in all projects",
             mode = { "n", "x" },
         },
