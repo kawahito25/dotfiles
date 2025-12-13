@@ -36,7 +36,45 @@ return {
         },
     },
     keys = {
+        -- Actions
         { "<leader>hs", function() require('gitsigns').stage_hunk() end, desc = "Stage / Unstage Current Hunks" },
         { "<leader>hr", function() require('gitsigns').reset_hunk() end, desc = "Reset Current Hunks" },
+        {
+            '<leader>hs',
+            function() require('gitsigns').stage_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end,
+            mode = { "v" },
+            desc = "Stage / Unstage Current Hunks"
+        },
+        {
+            '<leader>hr',
+            function() require('gitsigns').reset_hunk({ vim.fn.line('.'), vim.fn.line('v') }) end,
+            mode = { "v" },
+            desc = "Reset Current Hunks"
+        },
+        -- Navigation
+        {
+            ']h',
+            function()
+                if vim.wo.diff then
+                    vim.cmd.normal({ ']c', bang = true })
+                else
+                    require('gitsigns').nav_hunk('next', { target = "all" })
+                end
+            end,
+            mode = { "n" },
+            desc = "next hunk"
+        },
+        {
+            '[h',
+            function()
+                if vim.wo.diff then
+                    vim.cmd.normal({ '[c', bang = true })
+                else
+                    require('gitsigns').nav_hunk('prev', { target = "all" })
+                end
+            end,
+            mode = { "n" },
+            desc = "prev hunk"
+        }
     },
 }
