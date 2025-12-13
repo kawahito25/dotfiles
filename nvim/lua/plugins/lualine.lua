@@ -14,6 +14,10 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
     opts = {
+        options = {
+            theme = "catppuccin",
+            disabled_filetypes = { statusline = { "snacks_dashboard" }, },
+        },
         sections = {
             lualine_a = {
                 'mode',
