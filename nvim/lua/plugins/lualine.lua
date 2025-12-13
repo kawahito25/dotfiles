@@ -27,6 +27,12 @@ return {
                 { 'b:gitsigns_head', icon = '' },
                 { 'diff', source = diff_source },
             },
+            lualine_c = {
+                {
+                    'filename',
+                    path = 4,
+                }
+            },
         },
     }
 }
