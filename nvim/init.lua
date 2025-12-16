@@ -47,6 +47,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     command = [[%s/\s\+$//e]],
 })
 
+-- LSP code action のキーマップを追加（デフォルトでは gra にマッピングされている）
+vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
+
 require("config.lazy")
 require("config.lsp")
 
