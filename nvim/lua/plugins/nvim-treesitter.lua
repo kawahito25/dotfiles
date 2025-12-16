@@ -9,11 +9,10 @@ return {
         dependencies = {
             "RRethy/nvim-treesitter-endwise",
         },
-        opts = function(_, opts)
-            opts.endwise = {
-                enable = true
-            }
-        end,
+        opts = {
+            endwise = { enabled = true },
+            indent = { enabled = true },
+        },
         config = function(_, opts)
             vim.api.nvim_create_autocmd("FileType", {
                 group = vim.api.nvim_create_augroup("lazyvim_treesitter", { clear = true }),
