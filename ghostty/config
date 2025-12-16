@@ -2,7 +2,7 @@ background-blur = true
 background-opacity = 0.96
 copy-on-select = clipboard
 font-family = MesloLGS NF
-font-size = 15
+font-size = 14
 keybind = cmd+b=esc:b
 keybind = cmd+f=esc:f
 keybind = cmd+z=text:\x1A
