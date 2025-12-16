@@ -141,7 +141,26 @@ return {
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,           desc = "LSP Symbols" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
         -- others
-        { "<leader>gb", function() Snacks.gitbrowse() end,                    desc = "Git Browse",            mode = { "n", "v" } },
+        {
+            "<leader>gb",
+            function()
+                Snacks.gitbrowse({
+                    branch = (function()
+                        local output = vim.fn.system("git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null")
+
+                        if output and output ~= "" then
+                            return output
+                                :gsub("^refs/remotes/origin/", "")
+                                :gsub("[\r\n]$", "")
+                        end
+
+                        return "main"
+                    end)()
+                })
+            end,
+            desc = "Git Browse",
+            mode = { "n", "v" }
+        },
     },
     init = function()
         vim.api.nvim_create_autocmd("User", {
