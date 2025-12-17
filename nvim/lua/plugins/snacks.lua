@@ -168,7 +168,7 @@ return {
             callback = function()
                 -- Create some toggle mappings
                 Snacks.toggle.indent():map("<leader>ug")
-                Snacks.toggle.dim():map("<leader>uD")
+                Snacks.toggle.dim():map("<leader>ud")
             end,
         })
     end,
