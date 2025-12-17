@@ -2,6 +2,7 @@
 return {
     'saghen/blink.cmp',
     version = '*',
+    dependencies = { { "giuxtaposition/blink-cmp-copilot" } },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
         completion = {
@@ -26,7 +27,15 @@ return {
             }
         },
         sources = {
-            default = { "lsp", "path", "snippets", "buffer" },
+            default = { "lsp", "path", "snippets", "buffer", "copilot" },
+            providers = {
+                copilot = {
+                    name = "copilot",
+                    module = "blink-cmp-copilot",
+                    score_offset = 100,
+                    async = true,
+                },
+            },
             per_filetype = {
                 markdown = { "snippets", "path" },
             },
