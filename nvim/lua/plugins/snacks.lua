@@ -15,12 +15,28 @@ return {
         picker = {
             enabled = true,
             focus = "input",
-            matcher = {
-                frecency = true,
-            },
+            matcher = { frecency = true },
             sources = {
-                explorer = {
-                    auto_close = true
+                explorer = { auto_close = true },
+                recent = {
+                    transform = function(item)
+                        if vim.fn.isdirectory(item.file) == 1 then return false end -- ディレクトリを検索対象から除外
+                    end
+
+                },
+                smart = {
+                    transform = function(item, ctx)
+                        -- smart のデフォルトの tramsform "unique_file" の実装をコピペ
+                        -- @see https://github.com/folke/snacks.nvim/blob/fe7cfe9800a182274d0f868a74b7263b8c0c020b/lua/snacks/picker/transform.lua#L5-L12
+                        ctx.meta.done = ctx.meta.done or {}
+                        local path = Snacks.picker.util.path(item)
+                        if not path or ctx.meta.done[path] then
+                            return false
+                        end
+                        ctx.meta.done[path] = true
+
+                        if vim.fn.isdirectory(item.file) == 1 then return false end -- ディレクトリを検索対象から除外
+                    end
                 },
             },
             win = {
