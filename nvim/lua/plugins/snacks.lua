@@ -15,6 +15,7 @@ return {
         picker = {
             enabled = true,
             focus = "input",
+            layout = { fullscreen = true },
             matcher = { frecency = true },
             sources = {
                 explorer = { auto_close = true },
