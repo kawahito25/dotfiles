@@ -18,8 +18,13 @@ vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自�
 vim.opt.conceallevel = 2
 vim.opt.clipboard:append({ "unnamedplus" })
 
+-- clear statusline
+vim.opt.laststatus = 0
+vim.opt.statusline = "─"
+vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
+
 -- diff
-vim.opt.fillchars = { diff = ' ' }
+vim.opt.fillchars:append({ diff = ' ' })
 vim.opt.diffopt:append("iwhite")
 
 -- Ctrl-p/n でコマンド履歴のフィルタリングまで行う。
