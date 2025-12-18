@@ -19,7 +19,15 @@ return {
         },
         build = "make tiktoken",
         cmd = "CopilotChat", -- lazy-load on a command
-        opts = { model = 'gpt-4.1' },
+        opts = {
+            model = 'gpt-4.1',
+            mappings = {
+                reset = {
+                    normal = "<leader>ur",
+                    insert = "<leader>ur",
+                },
+            },
+        },
         keys = {
             {
                 "<leader>hR",
