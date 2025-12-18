@@ -92,11 +92,11 @@ return {
             desc = "Visual selection or word",
             mode = { "n", "x" },
         },
-        { "<leader><space>", function() Snacks.picker.smart({ hidden = true }) end, desc = "Smart Find Files" },
-        { "<leader>,",       function() Snacks.picker.buffers() end,                desc = "Buffers" },
-        { "<leader>:",       function() Snacks.picker.command_history() end,        desc = "Command History" },
-        { "<leader>.",       function() Snacks.picker.resume() end,                 desc = "Resume" },
-        { "<leader>e",       function() Snacks.explorer() end,                      desc = "File Explorer" },
+        { "<leader><space>", function() Snacks.picker.smart({ hidden = true }) end,       desc = "Smart Find Files" },
+        { "<leader>,",       function() Snacks.picker.buffers({ layout = "vscode" }) end, desc = "Buffers" },
+        { "<leader>:",       function() Snacks.picker.command_history() end,              desc = "Command History" },
+        { "<leader>.",       function() Snacks.picker.resume() end,                       desc = "Resume" },
+        { "<leader>e",       function() Snacks.explorer() end,                            desc = "File Explorer" },
         -- find
         {
             "<leader>fc",
