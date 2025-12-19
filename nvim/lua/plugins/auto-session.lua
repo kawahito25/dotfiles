@@ -2,6 +2,8 @@ return {
     "rmagatti/auto-session",
     lazy = false,
     opts = {
+        auto_restore = false,
+        git_use_branch_name = true,
         bypass_save_filetypes = { "snacks_dashboard" },
         -- Save quickfix list and open it when restoring the session
         save_extra_cmds = {
@@ -24,5 +26,13 @@ return {
                 return { setqflist, setqfinfo }
             end,
         },
+        session_lens = {
+            picker = "snacks",
+            picker_opts = { preset = "default" },
+            mappings = {},
+        },
     },
+    keys = {
+        { "<leader>sS", "<cmd>AutoSession search<CR>", desc = "Session search" },
+    }
 }
