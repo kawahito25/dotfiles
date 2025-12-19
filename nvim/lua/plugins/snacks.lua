@@ -18,7 +18,7 @@ return {
             layout = { fullscreen = true },
             matcher = { frecency = true },
             sources = {
-                explorer = { auto_close = true },
+                explorer = { auto_close = true, layout = { fullscreen = false }, },
                 recent = {
                     transform = function(item)
                         if vim.fn.isdirectory(item.file) == 1 then return false end -- ディレクトリを検索対象から除外
