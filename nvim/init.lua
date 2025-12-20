@@ -2,7 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.number = false
-vim.opt.signcolumn = "yes"
 
 vim.opt.undofile = true
 vim.opt.undodir = "/tmp/vim_undodir"
