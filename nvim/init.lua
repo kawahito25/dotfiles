@@ -1,8 +1,7 @@
 -- 基本的な設定
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.number = false
 vim.opt.signcolumn = "yes"
 
 vim.opt.undofile = true
