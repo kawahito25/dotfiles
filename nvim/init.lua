@@ -33,7 +33,7 @@ vim.cmd("cnoremap <C-p> <Up>")
 vim.cmd("cnoremap <C-n> <Down>")
 
 -- 分割ウィンドウのキーマップを tmux と合わせる
-vim.keymap.set('n', '<C-W>|', '<Cmd>vsplit<CR>', { silent = true, desc = 'Vertical Split (custom)' })
+vim.keymap.set('n', '<C-W>\\', '<Cmd>vsplit<CR>', { silent = true, desc = 'Vertical Split (custom)' })
 vim.keymap.set('n', '<C-W>-', '<Cmd>split<CR>', { silent = true, desc = 'Horizontal Split (custom)' })
 
 -- yank 後に対象をハイライトする
