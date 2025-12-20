@@ -25,6 +25,7 @@ return {
             blink_cmp = { style = 'bordered' },
             ufo = true,
             treesitter_context = true,
+            noice = true,
         },
         custom_highlights = function(colors)
             return {
