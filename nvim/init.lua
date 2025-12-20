@@ -42,6 +42,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     end,
 })
 
+-- 現在のファイルのフルパスをコピー
+vim.keymap.set('n', '<leader>y', ':let @+ = expand("%:.") . ":" . line(".")<CR>',
+    { silent = true, desc = 'yank relative path with linenumber' }
+)
+
 -- ファイル書き込み前 (BufWritePre) に、末尾の空白を削除するコマンドを実行
 local group = vim.api.nvim_create_augroup("TidyOnWrite", { clear = true })
 vim.api.nvim_create_autocmd("BufWritePre", {
