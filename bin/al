@@ -1,6 +1,0 @@
-#!/bin/bash
-
-grep -v '^$' "$DOTFILES_DIR/zsh/aliases.zsh" | fzf
-
-exit 0
-
