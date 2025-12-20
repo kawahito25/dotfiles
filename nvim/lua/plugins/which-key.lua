@@ -14,6 +14,7 @@ return {
         spec = {
             mode = { "n", "x" },
             { "<leader>a", group = "AI", icon = { icon = '󱙺', color = 'azure' } },
+            { "<leader>A", group = "Alternate", icon = { icon = '', color = 'cyan' } },
             { "<leader>b", group = "Browse", icon = { icon = '', color = 'yellow' } },
             { "<leader>c", group = "Code" },
             { "<leader>d", group = "Diff", icon = { icon = '', color = 'green' } },
