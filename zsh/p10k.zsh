@@ -20,27 +20,27 @@
 
   # Catppuccin Mocha Palette for Powerlevel10k
   # This file defines the color palette used for the Mocha theme.
-  
+
   # Core colors
   typeset -g P10K_COLOR_BASE="#1e1e2e"   # Base
   typeset -g P10K_COLOR_MANTLE="#181825" # Mantle
   typeset -g P10K_COLOR_CRUST="#11111b"  # Crust
-  
+
   # Text and Subtext
   typeset -g P10K_COLOR_TEXT="#cdd6f4"     # Text
   typeset -g P10K_COLOR_SUBTEXT1="#bac2de" # Subtext 1
   typeset -g P10K_COLOR_SUBTEXT0="#a6adc8" # Subtext 0
-  
+
   # Overlays
   typeset -g P10K_COLOR_OVERLAY2="#9399b2" # Overlay 2
   typeset -g P10K_COLOR_OVERLAY1="#7f849c" # Overlay 1
   typeset -g P10K_COLOR_OVERLAY0="#6c7086" # Overlay 0
-  
+
   # Surfaces
   typeset -g P10K_COLOR_SURFACE2="#585b70" # Surface 2
   typeset -g P10K_COLOR_SURFACE1="#45475a" # Surface 1
   typeset -g P10K_COLOR_SURFACE0="#313244" # Surface 0
-  
+
   # Accent colors
   typeset -g P10K_COLOR_BLUE="#89b4fa"      # Blue
   typeset -g P10K_COLOR_LAVENDER="#b4befe"  # Lavender
@@ -175,7 +175,7 @@
   # Add an empty line before each prompt.
   typeset -g POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-  
+
 
   # The left end of left prompt.
   typeset -g POWERLEVEL9K_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=' '
@@ -196,7 +196,7 @@
   # if using this. You might also like POWERLEVEL9K_PROMPT_ADD_NEWLINE=false for more compact
   # prompt.
   typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR='·'
-  
+
   if [[ $POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_CHAR != ' ' ]]; then
     # The color of the filler.
     typeset -g POWERLEVEL9K_MULTILINE_FIRST_PROMPT_GAP_FOREGROUND=$P10K_COLOR_SURFACE1
@@ -210,7 +210,7 @@
     typeset -g POWERLEVEL9K_EMPTY_LINE_RIGHT_PROMPT_FIRST_SEGMENT_START_SYMBOL='%{%}'
   fi
 
-  
+
 
   #################################[ os_icon: os identifier ]##################################
   # OS identifier color.
@@ -219,7 +219,7 @@
   # typeset -g POWERLEVEL9K_OS_ICON_CONTENT_EXPANSION='⭐'
 
   ################################[ prompt_char: prompt symbol ]################################
-  
+
   # Green prompt symbol if the last command succeeded.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_OK_{VIINS,VICMD,VIVIS,VIOWR}_FOREGROUND=$P10K_COLOR_MAUVE
   # Red prompt symbol if the last command failed.
@@ -237,14 +237,14 @@
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_LAST_SEGMENT_END_SYMBOL=''
   # No line introducer if prompt_char is the first segment.
   typeset -g POWERLEVEL9K_PROMPT_CHAR_LEFT_PROMPT_FIRST_SEGMENT_START_SYMBOL=
-  
+
 
   ##################################[ dir: current directory ]##################################
   # Default current directory color.
   typeset -g POWERLEVEL9K_DIR_FOREGROUND=$P10K_COLOR_LAVENDER
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
-  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
+  typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_last
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
@@ -293,13 +293,13 @@
   # respectively.
   typeset -g POWERLEVEL9K_DIR_TRUNCATE_BEFORE_MARKER=false
   # Don't shorten this many last directory segments. They are anchors.
-  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+  typeset -g POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
   # Shorten directory if it's longer than this even if there is space for it. The value can
   # be either absolute (e.g., '80') or a percentage of terminal width (e.g, '50%'). If empty,
   # directory will be shortened only when prompt doesn't fit or when other parameters demand it
   # (see POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS and POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS_PCT below).
   # If set to `0`, directory will always be shortened to its minimum length.
-  typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=80
+  typeset -g POWERLEVEL9K_DIR_MAX_LENGTH=2
   # When `dir` segment is on the last prompt line, try to shorten it enough to leave at least this
   # many columns for typing commands.
   typeset -g POWERLEVEL9K_DIR_MIN_COMMAND_COLUMNS=40
@@ -376,7 +376,7 @@
 
   #####################################[ vcs: git status ]######################################
 
-  
+
 
   # Branch icon. Set this parameter to '\UE0A0 ' for the popular Powerline branch icon.
   typeset -g POWERLEVEL9K_VCS_BRANCH_ICON=
@@ -402,7 +402,7 @@
       typeset -g my_git_format=$P9K_CONTENT
       return
     fi
-    
+
     if (( $1 )); then
       # Styling for up-to-date Git status.
       local       meta='%F{#cba6f7}'     # default foreground
@@ -521,7 +521,7 @@
   # Enable counters for staged, unstaged, etc.
   typeset -g POWERLEVEL9K_VCS_{STAGED,UNSTAGED,UNTRACKED,CONFLICTED,COMMITS_AHEAD,COMMITS_BEHIND}_MAX_NUM=-1
 
-  
+
   # Icon color.
   typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_COLOR=$P10K_COLOR_MAUVE
   typeset -g POWERLEVEL9K_VCS_LOADING_VISUAL_IDENTIFIER_COLOR=$P10K_COLOR_MAUVE
@@ -759,7 +759,7 @@
   typeset -g POWERLEVEL9K_RANGER_FOREGROUND=$P10K_COLOR_YELLOW
   # Custom icon.
   # typeset -g POWERLEVEL9K_RANGER_VISUAL_IDENTIFIER_EXPANSION='⭐'
-  
+
   ####################[ yazi: yazi shell (https://github.com/sxyazi/yazi) ]#####################
   # Yazi shell color.
   typeset -g POWERLEVEL9K_YAZI_FOREGROUND=$P10K_COLOR_YELLOW
