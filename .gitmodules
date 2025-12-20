@@ -10,9 +10,6 @@
 [submodule "catppuccin/eza"]
 	path = submodules/catppuccin/eza
 	url = git@github.com:catppuccin/eza.git
-[submodule "catppuccin/lazygit"]
-	path = submodules/catppuccin/lazygit
-	url = git@github.com:catppuccin/lazygit.git
 [submodule "catppuccin/fzf"]
 	path = submodules/catppuccin/fzf
 	url = git@github.com:catppuccin/fzf.git
