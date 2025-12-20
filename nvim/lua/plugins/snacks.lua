@@ -158,7 +158,7 @@ return {
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end,          desc = "LSP Symbols" },
         -- others
         {
-            "<leader>gb",
+            "<leader>bg",
             function()
                 Snacks.gitbrowse({
                     branch = (function()

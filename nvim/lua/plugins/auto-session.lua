@@ -33,7 +33,6 @@ return {
         },
     },
     keys = {
-        { "<leader>w",  "",                             desc = "+Session" },
         { "<leader>ws", "<cmd>AutoSession search<CR>",  desc = "Session search" },
         { "<leader>wr", "<cmd>AutoSession restore<CR>", desc = "Session restore" },
     }

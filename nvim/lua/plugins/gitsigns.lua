@@ -37,7 +37,7 @@ return {
     },
     keys = {
         -- Actions
-        { "<leader>hs", function() require('gitsigns').stage_hunk() end, desc = "Stage / Unstage Current Hunks" },
+        { "<leader>hs", function() require('gitsigns').stage_hunk() end, desc = "Toggle Stage Current Hunks" },
         { "<leader>hr", function() require('gitsigns').reset_hunk() end, desc = "Reset Current Hunks" },
         {
             '<leader>hs',
