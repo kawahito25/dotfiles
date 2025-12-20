@@ -27,6 +27,7 @@ SAVEHIST=1000000
 
 # CTRL-R
 export FZF_CTRL_R_OPTS="
+  --bind 'start:clear-query'
   --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
   --color header:#CDD6F4
   --no-multi-line
