@@ -30,7 +30,7 @@ return {
         },
         keys = {
             {
-                "<leader>hR",
+                "<leader>ar",
                 function()
                     require("CopilotChat").ask(
                         "バグの可能性がないか、よりシンプルで可読性の高いコードに変更できないか、という観点で日本語でコードレビューして。", {
@@ -38,7 +38,7 @@ return {
                             sticky = { "#buffer", "#gitdiff:staged" }
                         })
                 end,
-                desc = "AI Review"
+                desc = "Copilot Review"
             },
         }
     },
