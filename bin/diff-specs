@@ -1,9 +1,7 @@
 #!/bin/sh
 
-base_commit=$(git merge-base HEAD main)
-
 targets=$(
-    git diff --name-only "$base_commit" HEAD |
+    git diff --name-only --staged |
     sort -u |
     # 変更されたファイル名を受け取り、対応するテストファイル名に変換する
     awk '
