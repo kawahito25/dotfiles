@@ -33,6 +33,7 @@ vim.cmd("cnoremap <C-n> <Down>")
 -- 分割ウィンドウのキーマップを tmux と合わせる
 vim.keymap.set('n', '<C-W>\\', '<Cmd>vsplit<CR>', { silent = true, desc = 'Vertical Split (custom)' })
 vim.keymap.set('n', '<C-W>-', '<Cmd>split<CR>', { silent = true, desc = 'Horizontal Split (custom)' })
+vim.keymap.set('n', '<C-W>x', '<C-W>q', { silent = true, desc = 'Quit a window (custom)' })
 
 -- yank 後に対象をハイライトする
 vim.api.nvim_create_autocmd("TextYankPost", {
