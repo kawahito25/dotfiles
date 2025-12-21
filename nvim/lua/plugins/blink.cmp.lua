@@ -71,7 +71,8 @@ return {
                 yank = {
                     name = "yank",
                     module = "blink-yanky",
-                    opts = { kind_icon = '󰅍' }
+                    opts = { kind_icon = '󰅍', onlyCurrentFiletype = true },
+                    score_offset = -2,
                 }
             },
             per_filetype = {
