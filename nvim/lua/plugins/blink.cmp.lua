@@ -2,7 +2,10 @@
 return {
     'saghen/blink.cmp',
     version = '*',
-    dependencies = { { "giuxtaposition/blink-cmp-copilot" } },
+    dependencies = {
+        { "giuxtaposition/blink-cmp-copilot" },
+        { 'disrupted/blink-cmp-conventional-commits' },
+    },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
         completion = {
@@ -27,13 +30,21 @@ return {
             }
         },
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "copilot" },
+            default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits' },
             providers = {
                 copilot = {
                     name = "copilot",
                     module = "blink-cmp-copilot",
                     score_offset = 100,
                     async = true,
+                },
+                conventional_commits = {
+                    name = "conventional_commits",
+                    module = "blink-cmp-conventional-commits",
+                    enabled = function()
+                        return vim.bo.filetype == 'gitcommit'
+                    end,
+                    opts = {},
                 },
             },
             per_filetype = {
