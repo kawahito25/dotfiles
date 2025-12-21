@@ -82,6 +82,9 @@ return {
                             callback = function(response)
                                 vim.schedule(function()
                                     local lines = vim.split(response.content, "\n")
+                                    if #lines > 0 and lines[1]:match("^%s*$") then
+                                        table.remove(lines, 1)
+                                    end
                                     vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, lines)
                                     chat.close()
                                 end)
