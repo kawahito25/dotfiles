@@ -5,6 +5,7 @@ return {
     dependencies = {
         { "giuxtaposition/blink-cmp-copilot" },
         { 'disrupted/blink-cmp-conventional-commits' },
+        { "marcoSven/blink-cmp-yanky" },
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
@@ -38,7 +39,7 @@ return {
             }
         },
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits', 'omni' },
+            default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits', 'omni', 'yank' },
             providers = {
                 copilot = {
                     name = "copilot",
@@ -54,6 +55,11 @@ return {
                     end,
                     opts = {},
                 },
+                yank = {
+                    name = "yank",
+                    module = "blink-yanky",
+                    opts = { kind_icon = '󰅍' }
+                }
             },
             per_filetype = {
                 markdown = { "snippets", "path" },

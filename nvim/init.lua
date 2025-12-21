@@ -35,14 +35,6 @@ vim.keymap.set('n', '<C-W>\\', '<Cmd>vsplit<CR>', { silent = true, desc = 'Verti
 vim.keymap.set('n', '<C-W>-', '<Cmd>split<CR>', { silent = true, desc = 'Horizontal Split (custom)' })
 vim.keymap.set('n', '<C-W>x', '<C-W>q', { silent = true, desc = 'Quit a window (custom)' })
 
--- yank 後に対象をハイライトする
-vim.api.nvim_create_autocmd("TextYankPost", {
-    group = vim.api.nvim_create_augroup("HighlightYank", { clear = true }),
-    callback = function()
-        vim.highlight.on_yank({ timeout = 500, higroup = "Search" })
-    end,
-})
-
 -- 現在のファイルのフルパスをコピー
 vim.keymap.set('n', '<leader>y', ':let @+ = expand("%:.") . ":" . line(".")<CR>',
     { silent = true, desc = 'yank relative path with linenumber' }
