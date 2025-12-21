@@ -21,6 +21,7 @@ return {
             { "<leader>f", group = "Find" },
             { "<leader>h", group = "Hunk", icon = { icon = "", color = "cyan" } },
             { "<leader>p", group = "Prettify", icon = { icon = "󰭈", color = "yellow" } },
+            { "<leader>q", group = "Quickfix", icon = { icon = "󰷐", color = "orange" } },
             { "<leader>s", group = "Search" },
             { "<leader>u", group = "UI" },
             { "<leader>w", group = "Session" },
