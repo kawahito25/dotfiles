@@ -29,6 +29,14 @@ return {
                 selection = { preselect = false }
             }
         },
+        cmdline = {
+            enabled = true,
+            keymap = { preset = 'inherit' },
+            completion = {
+                list = { selection = { preselect = false } },
+                menu = { auto_show = true },
+            }
+        },
         sources = {
             default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits', 'omni' },
             providers = {
