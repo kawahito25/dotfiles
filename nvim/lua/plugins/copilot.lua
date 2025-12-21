@@ -18,6 +18,7 @@ return {
             { "nvim-lua/plenary.nvim", branch = "master" },
         },
         build = "make tiktoken",
+        ft = "gitcommit",
         cmd = "CopilotChat", -- lazy-load on a command
         opts = {
             model = 'gpt-4.1',
@@ -40,18 +41,27 @@ return {
                 end,
                 desc = "Copilot Review"
             },
-            {
-                "<leader>ac",
-                function()
+        },
+        config = function(_, opts)
+            require("CopilotChat").setup(opts)
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "gitcommit",
+                callback = function()
                     local bufnr = vim.api.nvim_get_current_buf()
+                    -- amend 時など、すでにコミットメッセージがある場合は何もしない
+                    local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
+                    if first_line ~= nil and first_line ~= "" then
+                        return
+                    end
+
                     local chat = require("CopilotChat")
                     chat.ask(
                         "Write a Conventional Commit message in English. No chatter. Body max 3 lines, or omit if simple.",
                         {
-                            -- model = "gpt-4.1",
+                            model = "gpt-4.1",
                             sticky = { "#gitdiff:staged" },
                             callback = function(response)
-                                -- response が存在し、かつ完了(done)した時の内容を取得
                                 vim.schedule(function()
                                     local lines = vim.split(response.content, "\n")
                                     vim.api.nvim_buf_set_lines(bufnr, 0, 0, false, lines)
@@ -66,9 +76,7 @@ return {
                             },
                         })
                 end,
-                ft = 'gitcommit',
-                desc = "Copilot commit message"
-            }
-        }
+            })
+        end,
     },
 }
