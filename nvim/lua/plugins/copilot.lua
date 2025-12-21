@@ -31,6 +31,12 @@ return {
         },
         keys = {
             {
+                "<leader>ao",
+                "<Cmd>CopilotChat<CR>",
+                mode = { "v", "n" },
+                desc = "Open Copilot Chat",
+            },
+            {
                 "<leader>ar",
                 function()
                     require("CopilotChat").ask(
@@ -41,6 +47,18 @@ return {
                 end,
                 desc = "Copilot Review"
             },
+            {
+                "<leader>ae",
+                function()
+                    require("CopilotChat").ask(
+                        "このコードが何をしているのか日本語で説明して。", {
+                            model = "gpt-4.1",
+                            sticky = { "#buffer" }
+                        })
+                end,
+                mode = { "v", "n" },
+                desc = "Copilot Explain",
+            }
         },
         config = function(_, opts)
             require("CopilotChat").setup(opts)
