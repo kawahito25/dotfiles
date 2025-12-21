@@ -1,4 +1,4 @@
-vim.lsp.enable({ 'lua_ls', 'ruby_lsp', 'syntax_tree', 'ts_ls', 'sorbet' })
+vim.lsp.enable({ 'lua_ls', 'ruby_lsp', 'syntax_tree', 'ts_ls', 'sorbet', 'typos_lsp' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
 vim.api.nvim_create_autocmd('LspAttach', {
