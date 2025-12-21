@@ -30,7 +30,7 @@ return {
             }
         },
         sources = {
-            default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits' },
+            default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits', 'omni' },
             providers = {
                 copilot = {
                     name = "copilot",
