@@ -6,6 +6,18 @@ return {
         { "giuxtaposition/blink-cmp-copilot" },
         { 'disrupted/blink-cmp-conventional-commits' },
         { "marcoSven/blink-cmp-yanky" },
+        {
+            'L3MON4D3/LuaSnip',
+            version = 'v2.*',
+            dependencies = {
+                {
+                    "rafamadriz/friendly-snippets",
+                    config = function()
+                        require("luasnip.loaders.from_vscode").lazy_load()
+                    end,
+                },
+            }
+        },
     },
     event = { "InsertEnter", "CmdlineEnter" },
     opts = {
@@ -38,6 +50,7 @@ return {
                 menu = { auto_show = true },
             }
         },
+        snippets = { preset = 'luasnip' },
         sources = {
             default = { "lsp", "path", "snippets", "buffer", "copilot", 'conventional_commits', 'omni', 'yank' },
             providers = {
