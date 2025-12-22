@@ -39,6 +39,33 @@ return {
                         if vim.fn.isdirectory(item.file) == 1 then return false end -- ディレクトリを検索対象から除外
                     end
                 },
+                qflist = {
+                    jump = { close = false },
+                    actions = {
+                        delete_item = function(picker, item)
+                            local qf_idx = item.idx
+                            local qf_win = vim.fn.getqflist()
+                            table.remove(qf_win, qf_idx)
+                            vim.fn.setqflist(qf_win, 'r')
+                            picker:find()
+                        end,
+                    },
+                    auto_close = false,
+                    focus = "list",
+                    win = {
+                        input = {
+                            keys = {
+                                ["<c-x>"] = { "delete_item", mode = { "n", "i" } },
+                            },
+                        },
+                        list = {
+                            keys = {
+                                ["dd"] = "delete_item",
+                                ["<c-x>"] = "delete_item",
+                            },
+                        }
+                    },
+                },
             },
             win = {
                 input = {
