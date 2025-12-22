@@ -13,7 +13,7 @@ return {
             end,
         },
         keys = {
-            { "<leader>qq", function() require("quicker").toggle() end, desc = "Toggle Quickfix" },
+            { "<leader>qq", function() require("quicker").toggle({ focus = true }) end, desc = "Toggle Quickfix" },
         },
     },
     {
