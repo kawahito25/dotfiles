@@ -51,7 +51,10 @@ return {
                 },
 
                 -- Snacks indent
-                SnacksIndent = { fg = colors.surface2 }
+                SnacksIndent = { fg = colors.surface2 },
+
+                -- nvim-bqf
+                BqfPreviewBorder = { fg = colors.blue },
             }
         end,
     },
