@@ -11,6 +11,16 @@ return {
                     desc = "Toggle expand / collapse",
                 })
             end,
+            keys = {
+                {
+                    "dd",
+                    function()
+                        vim.cmd("normal! dd")
+                        vim.cmd("write")
+                    end,
+                    desc = "Delete line and update quickfix",
+                },
+            },
         },
         keys = {
             { "<leader>qq", function() require("quicker").toggle({ focus = true }) end, desc = "Toggle Quickfix" },
