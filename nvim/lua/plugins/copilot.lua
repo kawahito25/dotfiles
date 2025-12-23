@@ -58,21 +58,11 @@ return {
                 end,
                 mode = { "v", "n" },
                 desc = "Copilot Explain",
-            }
-        },
-        config = function(_, opts)
-            require("CopilotChat").setup(opts)
-
-            vim.api.nvim_create_autocmd("FileType", {
-                pattern = "gitcommit",
-                callback = function()
+            },
+            {
+                "<leader>ac",
+                function()
                     local bufnr = vim.api.nvim_get_current_buf()
-                    -- amend 時など、すでにコミットメッセージがある場合は何もしない
-                    local first_line = vim.api.nvim_buf_get_lines(bufnr, 0, 1, false)[1]
-                    if first_line ~= nil and first_line ~= "" then
-                        return
-                    end
-
                     local chat = require("CopilotChat")
                     chat.ask(
                         "Write a Conventional Commit message in English. No chatter. Body max 3 lines, or omit if simple.",
@@ -97,7 +87,9 @@ return {
                             },
                         })
                 end,
-            })
-        end,
+                ft = 'gitcommit',
+                desc = "Copilot commit message"
+            }
+        },
     },
 }
