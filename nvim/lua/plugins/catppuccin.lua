@@ -26,6 +26,7 @@ return {
             ufo = true,
             treesitter_context = true,
             noice = true,
+            neogit = true,
         },
         custom_highlights = function(colors)
             return {
