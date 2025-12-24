@@ -17,7 +17,7 @@ return {
             { "<leader>A", group = "Alternate", icon = { icon = '', color = 'cyan' } },
             { "<leader>b", group = "Browse", icon = { icon = '', color = 'yellow' } },
             { "<leader>c", group = "Code" },
-            { "<leader>d", group = "Diff", icon = { icon = '', color = 'green' } },
+            { "<leader>g", group = "Git", icon = { cat = "filetype", name = "git" } },
             { "<leader>f", group = "Find" },
             { "<leader>h", group = "Hunk", icon = { icon = "", color = "cyan" } },
             { "<leader>p", group = "Prettify", icon = { icon = "󰭈", color = "yellow" } },

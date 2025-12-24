@@ -3,7 +3,7 @@ return {
     cmd = { 'DiffviewOpen', 'DiffviewClose', 'DiffviewFileHistory' },
     keys = {
         {
-            '<leader>di', -- 例: <leader>g + d でDiffviewを開閉
+            '<leader>gd',
             function()
                 if next(require("diffview.lib").views) == nil then
                     vim.cmd('DiffviewOpen')
@@ -11,10 +11,10 @@ return {
                     vim.cmd('DiffviewClose')
                 end
             end,
-            desc = 'Toggle Diffview window',
+            desc = 'Git diff (DiffviewOpen)',
         },
         {
-            '<leader>dh', -- 例: <leader>g + f でファイルリストにフォーカス
+            '<leader>gf',
             function()
                 if next(require("diffview.lib").views) == nil then
                     vim.cmd('DiffviewFileHistory')
@@ -22,7 +22,7 @@ return {
                     vim.cmd('DiffviewClose')
                 end
             end,
-            desc = 'DiffviewFileHistor',
+            desc = 'Git diff (DiffviewFileHistor)',
         },
     }
 }
