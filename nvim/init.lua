@@ -6,13 +6,13 @@ vim.opt.number = false
 vim.opt.undofile = true
 vim.opt.undodir = "/tmp/vim_undodir"
 
-vim.opt.expandtab = true                      -- タブキーでスペースに展開
-vim.opt.shiftwidth = 4                        -- インデント操作 (>>など) の幅を4に設定
-vim.opt.tabstop = 4                           -- タブ文字 (\t) の表示幅を4に設定
-vim.opt.softtabstop = 4                       -- Backspaceなどで削除する際の幅を4に設定
-vim.opt.autoindent = true                     -- 改行したときに前の行のインデントを引き継ぐ
-vim.opt.smartindent = true                    -- 構文を考慮しインデントレベルを自動調整する
-vim.opt.guicursor = "t-v-i-c-r-cr-o:blinkon0" -- cursor の blink をやめる
+vim.opt.expandtab = true   -- タブキーでスペースに展開
+vim.opt.shiftwidth = 4     -- インデント操作 (>>など) の幅を4に設定
+vim.opt.tabstop = 4        -- タブ文字 (\t) の表示幅を4に設定
+vim.opt.softtabstop = 4    -- Backspaceなどで削除する際の幅を4に設定
+vim.opt.autoindent = true  -- 改行したときに前の行のインデントを引き継ぐ
+vim.opt.smartindent = true -- 構文を考慮しインデントレベルを自動調整する
+vim.opt.guicursor:append("t:ver25-blinkon0")
 
 vim.opt.conceallevel = 2
 vim.opt.clipboard:append({ "unnamedplus" })
@@ -87,6 +87,10 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
     end,
     group = vim.api.nvim_create_augroup("NoiceMacroNotficationDismiss", { clear = true })
 })
+
+-- terminal mode
+vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
+vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], { noremap = true })
 
 
 require("config.lazy")

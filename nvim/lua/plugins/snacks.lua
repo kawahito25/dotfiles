@@ -18,6 +18,7 @@ return {
             layout = { fullscreen = true },
             matcher = { frecency = true },
             sources = {
+                select = { layout = { preset = 'select', fullscreen = false } },
                 explorer = { auto_close = true, layout = { fullscreen = false }, },
                 recent = {
                     transform = function(item)
