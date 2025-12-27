@@ -11,6 +11,7 @@ keybind = cmd+z=text:\x1A
 macos-option-as-alt = true
 maximize = true
 theme = Catppuccin Mocha
+window-decoration = none
 window-padding-balance = true
 window-padding-x = 4
 cursor-style-blink = false
