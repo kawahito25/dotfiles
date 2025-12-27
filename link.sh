@@ -10,7 +10,7 @@ ln -sf $DOTFILES_DIR/submodules/catppuccin/alacritty/catppuccin-mocha.toml ~/.co
 ln -sf $DOTFILES_DIR/ghostty/config ~/.config/ghostty/config
 ln -sf $DOTFILES_DIR/nvim/ ~/.config/
 ln -sf $DOTFILES_DIR/.myclirc ~/.myclirc
-ln -sf $DOTFILES_DIR/zellij/config.kdl ~/.config/zellij/config.kdl
+ln -sf $DOTFILES_DIR/zellij ~/.config/
 
 # bat theme of catppuccin
 mkdir -p "$(bat --config-dir)/themes"

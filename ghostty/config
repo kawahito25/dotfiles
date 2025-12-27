@@ -3,6 +3,8 @@ background-opacity = 0.96
 copy-on-select = clipboard
 font-family = MesloLGS NF
 font-size = 14
+keybind = alt+]=text:\x1b]
+keybind = alt+[=text:\x1b[
 keybind = cmd+b=esc:b
 keybind = cmd+f=esc:f
 keybind = cmd+z=text:\x1A
