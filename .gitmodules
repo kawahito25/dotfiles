@@ -1,9 +1,6 @@
 [submodule "catppuccin/bat"]
 	path = submodules/catppuccin/bat
 	url = https://github.com/catppuccin/bat
-[submodule "catppuccin/alacritty"]
-	path = submodules/catppuccin/alacritty
-	url = git@github.com:catppuccin/alacritty.git
 [submodule "catppuccin/tmux"]
 	path = submodules/catppuccin/tmux
 	url = git@github.com:catppuccin/tmux.git

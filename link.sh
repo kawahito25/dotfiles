@@ -5,8 +5,6 @@ ln -sf $DOTFILES_DIR/.zshrc ~/.zshrc
 ln -sf $DOTFILES_DIR/.hushlogin ~/.hushlogin
 ln -sf $DOTFILES_DIR/.tmux.conf ~/.tmux.conf
 ln -sf $DOTFILES_DIR/.p10k.zsh ~/.p10k.zsh
-ln -sf $DOTFILES_DIR/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
-ln -sf $DOTFILES_DIR/submodules/catppuccin/alacritty/catppuccin-mocha.toml ~/.config/alacritty/catppuccin-mocha.toml
 ln -sf $DOTFILES_DIR/ghostty/config ~/.config/ghostty/config
 ln -sf $DOTFILES_DIR/nvim/ ~/.config/
 ln -sf $DOTFILES_DIR/.myclirc ~/.myclirc
