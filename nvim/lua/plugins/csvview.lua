@@ -18,7 +18,8 @@ return {
         },
     },
     cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
-    config = function()
+    config = function(_, opts)
+        require('csvview').setup(opts)
         vim.api.nvim_create_autocmd("FileType", {
             pattern = "csv",
             desc = "ファイルタイプが 'csv' の場合に csvview プラグインの機能を開始",
