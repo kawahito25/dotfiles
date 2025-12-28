@@ -38,6 +38,11 @@ keybinds clear-defaults=false {
         bind "Ctrl ¥" { NewPane "Right"; }
         bind "Ctrl -" { NewPane "Down"; }
 
+        unbind "Alt +"
+        unbind "Alt -"
+        bind "Alt p" { Resize "Increase"; }
+        bind "Alt n" { Resize "Decrease"; }
+
         bind "Ctrl h" {
             MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
                 name "move_focus_or_tab";
