@@ -17,12 +17,12 @@ return {
             '<leader>gf',
             function()
                 if next(require("diffview.lib").views) == nil then
-                    vim.cmd('DiffviewFileHistory')
+                    vim.cmd('DiffviewFileHistory %')
                 else
                     vim.cmd('DiffviewClose')
                 end
             end,
-            desc = 'Git diff (DiffviewFileHistor)',
+            desc = 'Git diff (DiffviewFileHistory)',
         },
     }
 }
