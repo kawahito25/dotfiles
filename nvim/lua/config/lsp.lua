@@ -1,3 +1,9 @@
+vim.lsp.config('sorbet', {
+  on_attach = function(client, bufnr)
+      client.server_capabilities.documentSymbolProvider = false
+  end,
+})
+
 vim.lsp.enable({ 'lua_ls', 'ruby_lsp', 'syntax_tree', 'ts_ls', 'sorbet', 'typos_lsp' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
