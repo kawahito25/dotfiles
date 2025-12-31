@@ -1,7 +1,9 @@
 keybinds clear-defaults=false {
-    unbind "Ctrl p"
     normal {
+        unbind "Ctrl p" // default: SwitchToMode Pane
+        unbind "Ctrl o" // default: SwitchToMode Session
         bind "Ctrl a" { SwitchToMode "Pane"; }
+        bind "Alt w" { SwitchToMode "Session"; }
     }
     pane {
         unbind "c"
@@ -19,7 +21,6 @@ keybinds clear-defaults=false {
         bind "c" { NewTab; }
     }
 
-
     shared_except "locked" {
         unbind "Ctrl g"
         bind "Alt l" { SwitchToMode "Locked"; }
@@ -29,7 +30,6 @@ keybinds clear-defaults=false {
         bind "Alt l" { SwitchToMode "Normal"; }
     }
 
-    unbind "Ctrl h"
     shared_except "locked" {
         unbind "Ctrl n"
 
