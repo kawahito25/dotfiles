@@ -1,7 +1,7 @@
 vim.lsp.config('sorbet', {
-  on_attach = function(client, bufnr)
-      client.server_capabilities.documentSymbolProvider = false
-  end,
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentSymbolProvider = false
+    end,
 })
 
 vim.lsp.enable({ 'lua_ls', 'ruby_lsp', 'syntax_tree', 'ts_ls', 'sorbet', 'typos_lsp' })
@@ -11,29 +11,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('my.lsp', {}),
     callback = function(args)
         local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
-
-        -- keymaps
-        local function keymap(mode, lhs, rhs, opts)
-            -- デフォルトのオプションを設定
-            opts = opts or {}
-            opts.noremap = opts.noremap ~= false
-            opts.silent = opts.silent ~= false
-
-            -- 実際のAPI呼び出し
-            vim.api.nvim_buf_set_keymap(args.buf, mode, lhs, rhs, opts)
-        end
-
-        -- default keymappings are here: https://neovim.io/doc/user/lsp.html#lsp-defaults
-        keymap('n', 'grd', '<cmd>lua vim.lsp.buf.definition()<CR>', { desc = "Goto Definition" })
-
-
-        -- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-        -- if client:supports_method('textDocument/completion') then
-        -- Optional: trigger autocompletion on EVERY keypress. May be slow!
-        -- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-        -- client.server_capabilities.completionProvider.triggerCharacters = chars
-        -- vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
-        -- end
 
         -- Auto-format ("lint") on save.
         -- Usually not needed if server supports "textDocument/willSaveWaitUntil".
