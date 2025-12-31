@@ -4,7 +4,7 @@ vim.lsp.config('sorbet', {
     end,
 })
 
-vim.lsp.enable({ 'lua_ls', 'ruby_lsp', 'syntax_tree', 'ts_ls', 'sorbet', 'typos_lsp' })
+vim.lsp.enable({ 'clangd', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
 vim.api.nvim_create_autocmd('LspAttach', {
