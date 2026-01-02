@@ -186,7 +186,7 @@ return {
         { "<leader>ss", function() Snacks.picker.lsp_symbols({ layout = "right" }) end, desc = "LSP Symbols" },
         -- open
         {
-            "<leader>og",
+            "<leader>ogf",
             function()
                 Snacks.gitbrowse({
                     branch = (function()
@@ -202,7 +202,21 @@ return {
                     end)()
                 })
             end,
-            desc = "Git Browse",
+            desc = "Open file in GitHub",
+            mode = { "n", "v" }
+        },
+        {
+            "<leader>ogw",
+            function()
+                local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":h");
+                local output = vim.fn.system("git -C " .. dir .. " remote -v");
+                local first_line = vim.split(output, "\n")[1];
+                local remote = first_line:match("%S+%s+(%S+)%s+%(%S+%)");
+                local org = remote:match("[:/]([^/:]+)/[^/%. ]+%.git$")
+                local search_url = string.format("https://github.com/search?q=org:%s+%s", org, vim.fn.expand("<cword>"))
+                vim.ui.open(search_url)
+            end,
+            desc = "Search word in Github organization",
             mode = { "n", "v" }
         },
     },
