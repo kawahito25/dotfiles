@@ -16,8 +16,8 @@ return {
         },
     },
     keys = {
-        { "<leader>on", "<cmd>Obsidian new<cr>",          desc = "New Obsidian note", mode = "n" },
-        { "<leader>ow", "<cmd>Obsidian search word<cr>",  desc = "Search Word",       mode = "n" },
-        { "<leader>of", "<cmd>Obsidian quick_switch<cr>", desc = "Find Files",        mode = "n" },
+        { "<leader>nn", "<cmd>Obsidian new<cr>",          desc = "New Obsidian note", mode = "n" },
+        { "<leader>nw", "<cmd>Obsidian search word<cr>",  desc = "Search Word",       mode = "n" },
+        { "<leader>nf", "<cmd>Obsidian quick_switch<cr>", desc = "Find Files",        mode = "n" },
     },
 }
