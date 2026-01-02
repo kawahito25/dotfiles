@@ -6,6 +6,9 @@ return {
     },
     opts = {
         ring = { storage = "sqlite" },
+        system_clipboard = {
+            sync_with_ring = false, -- zellij で 別アプリに移動した際に、FocusGained / FocusLost イベントが発火しないため、true にしても動作しない。
+        },
     },
     keys = {
         {
