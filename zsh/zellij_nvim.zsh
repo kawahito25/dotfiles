@@ -2,8 +2,8 @@
 # GitHub Issue: https://github.com/hiasr/vim-zellij-navigator/issues/24
 
 # Zellij 移動用関数を定義
-function zellij-move-left()  { zellij action move-focus-or-tab left  }
-function zellij-move-right() { zellij action move-focus-or-tab right }
+function zellij-move-left()  { zellij action move-focus left  }
+function zellij-move-right() { zellij action move-focus right }
 function zellij-move-down()  { zellij action move-focus down  }
 function zellij-move-up()    { zellij action move-focus up    }
 
