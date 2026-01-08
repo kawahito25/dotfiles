@@ -32,12 +32,14 @@ keybinds clear-defaults=false {
     shared_except "locked" {
         unbind "Ctrl n"
         unbind "Ctrl g"
+        unbind "Alt f"
 
         bind "Ctrl m" { SwitchToMode "Move"; }
         bind "Ctrl s" { SwitchToMode "Resize";  }
         bind "Ctrl ¥" { NewPane "Right"; }
         bind "Ctrl -" { NewPane "Down"; }
         bind "Alt g" { SwitchToMode "Locked"; }
+        bind "Super j" { ToggleFloatingPanes; }
 
         unbind "Alt +"
         unbind "Alt -"
