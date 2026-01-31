@@ -46,6 +46,7 @@ return {
         event = { "BufReadPost", "BufWritePost", "BufNewFile" },
         opts = {
             enabled = true,
+            max_lines = 4,
         }
     },
     {
