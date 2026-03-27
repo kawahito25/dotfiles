@@ -45,6 +45,8 @@ keybinds clear-defaults=false {
         unbind "Alt -"
         bind "Alt p" { Resize "Increase"; }
         bind "Alt n" { Resize "Decrease"; }
+        bind "Alt [" { MoveTab "Left"; }
+        bind "Alt ]" { MoveTab "Right"; }
 
         bind "Ctrl h" {
             MessagePlugin "https://github.com/hiasr/vim-zellij-navigator/releases/download/0.3.0/vim-zellij-navigator.wasm" {
