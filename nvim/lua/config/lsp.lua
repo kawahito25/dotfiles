@@ -3,8 +3,14 @@ vim.lsp.config('sorbet', {
         client.server_capabilities.documentSymbolProvider = false
     end,
 })
+vim.lsp.config('ts_ls', {
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+        client.server_capabilities.documentRangeFormattingProvider = false
+    end,
+})
 
-vim.lsp.enable({ 'clangd', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
+vim.lsp.enable({ 'clangd', 'eslint', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
 
 -- @see https://neovim.io/doc/user/lsp.html#lsp-attach
 vim.api.nvim_create_autocmd('LspAttach', {
