@@ -10,7 +10,7 @@ vim.lsp.config('ts_ls', {
     end,
 })
 
-vim.lsp.enable({ 'clangd', 'eslint', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
+vim.lsp.enable({ 'clangd', 'eslint', 'gopls', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
 
 -- 最も高い Severity の診断結果一つだけを抽出する共通関数
 local function top_severity_only(_, _, diagnostics, _)
