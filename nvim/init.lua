@@ -52,7 +52,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- LSP code action のキーマップを追加（デフォルトでは gra にマッピングされている）
 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
 
--- tmux-navigator に奪われた ctrl + l の機能を別のキーにマッピング
 vim.keymap.set("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-L><cr>", { desc = "Redraw Screen" })
 
 -- quickfix list

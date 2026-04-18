@@ -8,10 +8,9 @@ source $DOTFILES_DIR/submodules/catppuccin/fzf/themes/catppuccin-fzf-mocha.sh
 autoload -U compinit; compinit
 source $DOTFILES_DIR/submodules/fzf-tab/fzf-tab.plugin.zsh
 zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS} # @see https://github.com/Aloxaf/fzf-tab/issues/475#issuecomment-2402904112
-zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup # for tmux
 
 # append full screen options
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --tmux 100%,100% --style full --bind 'ctrl-u:half-page-up,ctrl-d:half-page-down'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --style full --bind 'ctrl-u:half-page-up,ctrl-d:half-page-down'"
 
 # use fd as default
 export FZF_DEFAULT_COMMAND='fd --type f'
@@ -75,6 +74,3 @@ function fzf-src () {
 zle -N fzf-src
 bindkey '^G' fzf-src
 
-# tmux
-# そのままスクリプトを実行すると、open terminal failed: not a terminal　のエラーが出るため、一度シェルに入力する
-bindkey -s '^@' "$DOTFILES_DIR/bin/tmux-switcher.sh"
