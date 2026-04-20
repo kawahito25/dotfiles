@@ -12,6 +12,16 @@ return {
                     ["lib/*.rb"] = { alternate = "spec/lib/{}_spec.rb" },
                     ["spec/lib/*_spec.rb"] = { alternate = "lib/{}.rb" }
                 },
+                ["go.mod"] = {
+                    ["*.go"] = {
+                        alternate = "{}_test.go",
+                        type = "source",
+                    },
+                    ["*_test.go"] = {
+                        alternate = "{}.go",
+                        type = "test",
+                    },
+                },
             }
         end,
     },
