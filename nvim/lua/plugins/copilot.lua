@@ -31,35 +31,6 @@ return {
         },
         keys = {
             {
-                "<leader>ao",
-                "<Cmd>CopilotChat<CR>",
-                mode = { "v", "n" },
-                desc = "Open Copilot Chat",
-            },
-            {
-                "<leader>ar",
-                function()
-                    require("CopilotChat").ask(
-                        "バグの可能性がないか、よりシンプルで可読性の高いコードに変更できないか、という観点で日本語でコードレビューして。", {
-                            model = "gpt-4.1",
-                            sticky = { "#buffer", "#gitdiff:staged" }
-                        })
-                end,
-                desc = "Copilot Review"
-            },
-            {
-                "<leader>ae",
-                function()
-                    require("CopilotChat").ask(
-                        "このコードが何をしているのか日本語で説明して。", {
-                            model = "gpt-4.1",
-                            sticky = { "#buffer" }
-                        })
-                end,
-                mode = { "v", "n" },
-                desc = "Copilot Explain",
-            },
-            {
                 "<leader>ac",
                 function()
                     local bufnr = vim.api.nvim_get_current_buf()
