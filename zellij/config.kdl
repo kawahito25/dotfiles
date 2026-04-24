@@ -1,3 +1,5 @@
+pane_frames false
+
 keybinds clear-defaults=false {
     normal {
         unbind "Ctrl p" // default: SwitchToMode Pane
