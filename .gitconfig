@@ -41,9 +41,16 @@
     br = "!git branch --sort=-committerdate --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:blue)%(authordate:short)%(color:reset)' --color=always | column -ts '|'"
 
     co = "!f() { \
-        local format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:blue)%(authordate:short)%(color:reset)'; \
-        local target=$(git branch --sort=-committerdate --format=\"$format\" --color=always | column -ts '|' | fzf --ansi --no-multi --height 40% | awk '{print $1}' | sed 's/^*//'); \
-        if [ -n \"$target\" ]; then \
-            git checkout \"$target\"; \
+        if [ \"$1\" = \"m\" ]; then \
+            local default_branch=$(git rev-parse --abbrev-ref origin/HEAD 2>/dev/null | sed 's/^origin\\///'); \
+            git checkout \"${default_branch:-main}\"; \
+        elif [ $# -gt 0 ]; then \
+            git checkout \"$@\"; \
+        else \
+            local format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:blue)%(authordate:short)%(color:reset)'; \
+            local target=$(git branch --sort=-committerdate --format=\"$format\" --color=always | column -ts '|' | fzf --ansi --no-multi --height 40% | awk '{print $1}' | sed 's/^*//'); \
+            if [ -n \"$target\" ]; then \
+                git checkout \"$target\"; \
+            fi \
         fi \
     }; f"
