@@ -1,10 +1,20 @@
 #!/bin/bash
 
-# 現在時刻から1ヶ月前（30日前）の秒数を取得
+# 1ヶ月前の秒数を取得
 one_month_ago=$(date -d '30 days ago' +%s 2>/dev/null || date -v-30d +%s)
+target_aged_only=false
 
-# 1ヶ月以上古いブランチのリストをメモリ上で直接作成
-old_branches_list=""
+# 引数の解析 (-a または --aged で「1ヶ月以上古いブランチ限定モード」)
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -a|--aged) target_aged_only=true ;;
+        *) echo "Unknown parameter passed: $1"; exit 1 ;;
+    esac
+    shift
+done
+
+# 対象ブランチのリストをメモリ上で直接作成
+branches_list=""
 
 while IFS='|' read -r refname committerdate_unix committerdate_relative; do
     # 現在のブランチ、main, master, develop は絶対に除外（安全弁）
@@ -12,28 +22,40 @@ while IFS='|' read -r refname committerdate_unix committerdate_relative; do
     clean_name=$(echo "$refname" | sed 's/^[* ]*//')
     if [[ "$clean_name" == "main" || "$clean_name" == "master" || "$clean_name" == "develop" ]]; then continue; fi
 
-    # 1ヶ月以上前のものだけを改行区切りで変数に蓄積
-    if [ "$committerdate_unix" -lt "$one_month_ago" ]; then
-        old_branches_list+="$(printf "%-30s (%s)\n" "$clean_name" "$committerdate_relative")"$'\n'
+    # -a がある場合は1ヶ月以上前のみ、ない場合は全期間を蓄積
+    if [ "$target_aged_only" = false ] || [ "$committerdate_unix" -lt "$one_month_ago" ]; then
+        branches_list+="$(printf "%-30s (%s)\n" "$clean_name" "$committerdate_relative")"$'\n'
     fi
 done < <(git branch --sort=-committerdate --format='%(refname:short)|%(committerdate:unix)|%(committerdate:relative)')
 
-# 古いブランチが1つもなければ終了
-if [ -z "$old_branches_list" ]; then
-    echo "No branches older than 1 month found."
+# 対象ブランチが1つもなければ終了
+if [ -z "$branches_list" ]; then
+    echo "No matching branches found."
     exit 0
 fi
 
-# fzf を起動（初期状態で全選択。Tabを押して「消したくないやつ」のマークを外す）
-selected_lines=$(echo -n "$old_branches_list" | fzf --ansi --multi --height 50% \
-    --header ' [Tab] Toggle (Unselect to KEEP)  /  [Enter] Confirm' \
-    --bind 'load:toggle-all')
+# パターンによって fzf の挙動とメッセージを切り替え
+if [ "$target_aged_only" = true ] ; then
+    # 【パターン1: -a あり】1ヶ月以上古いブランチのみ。初期状態で全選択。Tabで残したいやつのマークを外す
+    header_msg='[Aged Branches] [Tab] Toggle (Unselect to KEEP)  /  [Enter] Confirm'
+    fzf_bind='--bind load:toggle-all'
+else
+    # 【パターン2: 引数なし】全期間。初期選択なし。Tabで消したいやつを選ぶ
+    header_msg='[All Branches] [Tab] Select branches to DELETE  /  [Enter] Confirm'
+    fzf_bind=''
+fi
 
-# 選択された（＝マークが外されずに残った）ブランチ名を抽出
+# fzf を起動
+selected_lines=$(echo -n "$branches_list" | fzf --ansi --multi --height 50% \
+    --header "$header_msg" \
+    $fzf_bind)
+
+# 選択されたブランチ名を抽出
 selected_targets=$(echo "$selected_lines" | awk '{print $1}' | sed '/^$/d')
 
-# すべてのブランチが除外（保護）された場合
+# 何も選択されなかった場合
 if [ -z "$selected_targets" ]; then
+    echo "No branches selected for deletion."
     exit 0
 fi
 
