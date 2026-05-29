@@ -1,0 +1,51 @@
+#!/bin/bash
+
+# 現在時刻から1ヶ月前（30日前）の秒数を取得
+one_month_ago=$(date -d '30 days ago' +%s 2>/dev/null || date -v-30d +%s)
+
+# 1ヶ月以上古いブランチのリストをメモリ上で直接作成
+old_branches_list=""
+
+while IFS='|' read -r refname committerdate_unix committerdate_relative; do
+    # 現在のブランチ、main, master, develop は絶対に除外（安全弁）
+    if [[ "$refname" =~ ^\* ]]; then continue; fi
+    clean_name=$(echo "$refname" | sed 's/^[* ]*//')
+    if [[ "$clean_name" == "main" || "$clean_name" == "master" || "$clean_name" == "develop" ]]; then continue; fi
+
+    # 1ヶ月以上前のものだけを改行区切りで変数に蓄積
+    if [ "$committerdate_unix" -lt "$one_month_ago" ]; then
+        old_branches_list+="$(printf "%-30s (%s)\n" "$clean_name" "$committerdate_relative")"$'\n'
+    fi
+done < <(git branch --sort=-committerdate --format='%(refname:short)|%(committerdate:unix)|%(committerdate:relative)')
+
+# 古いブランチが1つもなければ終了
+if [ -z "$old_branches_list" ]; then
+    echo "No branches older than 1 month found."
+    exit 0
+fi
+
+# fzf を起動（初期状態で全選択。Tabを押して「消したくないやつ」のマークを外す）
+selected_lines=$(echo -n "$old_branches_list" | fzf --ansi --multi --height 50% \
+    --header ' [Tab] Toggle (Unselect to KEEP)  /  [Enter] Confirm' \
+    --bind 'load:toggle-all')
+
+# 選択された（＝マークが外されずに残った）ブランチ名を抽出
+selected_targets=$(echo "$selected_lines" | awk '{print $1}' | sed '/^$/d')
+
+# すべてのブランチが除外（保護）された場合
+if [ -z "$selected_targets" ]; then
+    exit 0
+fi
+
+echo "The following branches will be DELETED:"
+echo "$selected_targets" | sed 's/^/  /'
+echo ""
+
+# 最終確認
+read -p "Are you sure? [y/N]: " answer
+
+if [[ "$answer" =~ ^[Yy](es)?$ ]]; then
+    echo "$selected_targets" | xargs git branch -D
+else
+    echo "Aborted."
+fi
