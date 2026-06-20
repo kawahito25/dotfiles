@@ -30,3 +30,6 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # C言語開発に必要なツールたち
 export VCPKG_ROOT="$HOME/vcpkg"
 
+# `pipx` for oj
+export PATH="$PATH:$HOME/.local/bin"
+
