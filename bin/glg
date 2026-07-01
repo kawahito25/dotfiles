@@ -1,0 +1,25 @@
+#!/bin/bash
+
+SEARCH_QUERY=""
+while getopts "S:" opt; do
+  case $opt in
+    S) SEARCH_QUERY="$OPTARG" ;;
+    *) echo "Usage: glg [-S <query>]"; exit 1 ;;
+  esac
+done
+
+if [ -n "$SEARCH_QUERY" ]; then
+  git_cmd="git log -S '$SEARCH_QUERY' --oneline --format='%h %s (%cr) <%an>'"
+else
+  git_cmd="git log --oneline --format='%h %s (%cr) <%an>'"
+fi
+
+# fzf 起動
+eval "$git_cmd" | fzf \
+  --height 100% \
+  --layout=reverse \
+  --header "Enter: Open in Browser | Ctrl-u/d: Scroll Page" \
+  --preview 'git show --color=always {1} | delta --width=$FZF_PREVIEW_COLUMNS --paging=never' \
+  --preview-window 'up:75%,wrap' \
+  --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down" \
+  --bind "enter:execute(gh browse {1} > /dev/null 2>&1 &)"
