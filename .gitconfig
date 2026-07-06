@@ -23,6 +23,9 @@
     excludesFile = ~/code/github.com/kawahito25/dotfiles/.gitignore_global
     pager = delta
 
+[init]
+    defaultBranch = main
+
 [interactive]
     diffFilter = delta --color-only
 
