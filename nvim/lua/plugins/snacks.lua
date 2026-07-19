@@ -28,7 +28,7 @@ return {
                 },
                 smart = {
                     transform = function(item, ctx)
-                        -- smart のデフォルトの tramsform "unique_file" の実装をコピペ
+                        -- smart のデフォルトの transform "unique_file" の実装をコピペ
                         -- @see https://github.com/folke/snacks.nvim/blob/fe7cfe9800a182274d0f868a74b7263b8c0c020b/lua/snacks/picker/transform.lua#L5-L12
                         ctx.meta.done = ctx.meta.done or {}
                         local path = Snacks.picker.util.path(item)
@@ -71,6 +71,7 @@ return {
             win = {
                 input = {
                     keys = {
+                        ["<C-Space>"] = { "select_all", mode = { "n", "i" } },
                         ["<a-d>"] = {
                             "toggle_search_dir",
                             mode = { "n", "i" },
@@ -82,6 +83,7 @@ return {
                 },
                 list = {
                     keys = {
+                        ["<C-space>"] = { "select_all", mode = { "n", "i" } },
                         ["<a-d>"] = {
                             "toggle_search_dir",
                             mode = { "n", "i" },
