@@ -41,6 +41,10 @@ vim.keymap.set('n', '<leader>y', ':let @+ = expand("%:.") . ":" . line(".")<CR>'
     { silent = true, desc = 'yank relative path with linenumber' }
 )
 
+-- 水平スクロール
+vim.keymap.set("n", "zl", "zL", { desc = "Scroll half screen right" })
+vim.keymap.set("n", "zh", "zH", { desc = "Scroll half screen left" })
+
 -- 表示の切り替え
 vim.keymap.set('n', '<leader>un', function()
     vim.opt.number = not vim.opt.number:get()
