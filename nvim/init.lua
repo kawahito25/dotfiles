@@ -43,8 +43,9 @@ vim.keymap.set('n', '<leader>y', ':let @+ = expand("%:.") . ":" . line(".")<CR>'
 
 -- 表示の切り替え
 vim.keymap.set('n', '<leader>un', function()
-  vim.opt.number = not vim.opt.number:get()
+    vim.opt.number = not vim.opt.number:get()
 end, { desc = "Toggle line numbers" })
+vim.keymap.set("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-L><cr>", { desc = "Redraw Screen" })
 
 -- ファイル書き込み前 (BufWritePre) に、末尾の空白を削除するコマンドを実行
 local group = vim.api.nvim_create_augroup("TidyOnWrite", { clear = true })
@@ -56,41 +57,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 -- LSP code action のキーマップを追加（デフォルトでは gra にマッピングされている）
 vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LSP Code Action' })
-
-vim.keymap.set("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-L><cr>", { desc = "Redraw Screen" })
-
--- quickfix list
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = "qf",
-    callback = function()
-        -- o キーでフォーカスを qflist においたまま開く
-        vim.keymap.set("n", "o", "<CR><C-w>p", { buffer = true, silent = true })
-    end,
-})
-
--- noice.nvim で マクロ録画の開始・終了を通知する
--- @see https://github.com/folke/noice.nvim/issues/922#issuecomment-2254401041
-vim.api.nvim_create_autocmd("RecordingEnter", {
-    callback = function()
-        local msg = string.format("Register:  %s", vim.fn.reg_recording())
-        _MACRO_RECORDING_STATUS = true
-        vim.notify(msg, vim.log.levels.INFO, {
-            title = "Macro Recording",
-            keep = function() return _MACRO_RECORDING_STATUS end,
-        })
-    end,
-    group = vim.api.nvim_create_augroup("NoiceMacroNotfication", { clear = true })
-})
-vim.api.nvim_create_autocmd("RecordingLeave", {
-    callback = function()
-        _MACRO_RECORDING_STATUS = false
-        vim.notify("Success!", vim.log.levels.INFO, {
-            title = "Macro Recording End",
-            timeout = 2000,
-        })
-    end,
-    group = vim.api.nvim_create_augroup("NoiceMacroNotficationDismiss", { clear = true })
-})
 
 -- terminal mode
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
