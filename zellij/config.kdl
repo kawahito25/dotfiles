@@ -6,7 +6,7 @@ keybinds clear-defaults=false {
         unbind "Ctrl o" // default: SwitchToMode Session
         unbind "Ctrl q" // default: Quit
         unbind "Ctrl b"
-        bind "Ctrl a" { SwitchToMode "Pane"; }
+        bind "Ctrl @" { SwitchToMode "Pane"; }
         bind "Alt w" { SwitchToMode "Session"; }
         bind "Alt q" { Quit; }
     }
