@@ -2,6 +2,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.opt.number = false
+vim.keymap.set("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+vim.o.exrc = true
 
 vim.opt.undofile = true
 vim.opt.undodir = "/tmp/vim_undodir"
