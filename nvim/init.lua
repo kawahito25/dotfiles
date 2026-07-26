@@ -69,6 +69,31 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], { noremap = true })
 
 
+-- 競プロディレクトリ以下の新規 .cpp ファイルにのみテンプレートを適用
+vim.api.nvim_create_autocmd("BufNewFile", {
+    pattern = "*.cpp",
+    callback = function()
+        local filepath = vim.fn.expand("%:p")
+        local target_dir = vim.fn.expand("~/code/github.com/kawahito25/competitive-programming")
+
+        if vim.startswith(filepath, target_dir) then
+            local template = target_dir .. "/snippets/template.cpp"
+
+            if vim.fn.filereadable(template) == 1 then
+                -- Vim ネイティブのファイル読み込みコマンド (0行目に挿入)
+                vim.cmd("0r " .. template)
+
+                -- 一旦ファイルの末尾にカーソルを移動
+                local line_count = vim.api.nvim_buf_line_count(0)
+                pcall(vim.api.nvim_win_set_cursor, 0, { line_count, 0 })
+
+                -- 末尾から上に向かって最初の '}' を探し、そこにカーソルをピタッと当てる
+                vim.fn.search("}", "cb")
+            end
+        end
+    end,
+})
+
 require("config.lazy")
 require("config.lsp")
 
