@@ -1,3 +1,13 @@
+local to_move_next = function(q, group)
+    return function() require("nvim-treesitter-textobjects.move").goto_next_start(q, group or "textobjects") end
+end
+local to_move_prev = function(q, group)
+    return function() require("nvim-treesitter-textobjects.move").goto_previous_start(q, group or "textobjects") end
+end
+local to_select = function(q, group)
+    return function() require("nvim-treesitter-textobjects.select").select_textobject(q, group or "textobjects") end
+end
+
 return {
     {
         "nvim-treesitter/nvim-treesitter",
@@ -25,7 +35,30 @@ return {
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         branch = "main",
-        event = "VeryLazy",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+        init = function() vim.g.no_plugin_maps = true end,
+        keys = {
+            -- 移動 (move)
+            { "]f", to_move_next("@function.outer"),                desc = "Next function" },
+            { "[f", to_move_prev("@function.outer"),                desc = "Prev function" },
+            { "]c", to_move_next("@class.outer"),                   desc = "Next class" },
+            { "[c", to_move_prev("@class.outer"),                   desc = "Prev class" },
+            { "]g", to_move_next("@conditional.outer"),             desc = "Next conditional" },
+            { "[g", to_move_prev("@conditional.outer"),             desc = "Prev conditional" },
+            { "]r", to_move_next({ "@loop.inner", "@loop.outer" }), desc = "Next repeat/loop" },
+            { "[r", to_move_prev({ "@loop.inner", "@loop.outer" }), desc = "Prev repeat/loop" },
+            { "]z", to_move_next("@fold", "folds"),                 desc = "Next fold" },
+            { "]s", to_move_next("@local.scope", "locals"),         desc = "Next scope" },
+            -- 選択 (select)
+            { "af", to_select("@function.outer"),                   mode = { "x", "o" },      desc = "Select outer function" },
+            { "if", to_select("@function.inner"),                   mode = { "x", "o" },      desc = "Select inner function" },
+            { "ac", to_select("@class.outer"),                      mode = { "x", "o" },      desc = "Select outer class" },
+            { "ic", to_select("@class.inner"),                      mode = { "x", "o" },      desc = "Select inner class" },
+            { "ag", to_select("@conditional.outer"),                mode = { "x", "o" },      desc = "Select outer conditional" },
+            { "ig", to_select("@conditional.inner"),                mode = { "x", "o" },      desc = "Select inner conditional" },
+            { "ar", to_select({ "@loop.outer", "@loop.inner" }),    mode = { "x", "o" },      desc = "Select repeat/loop" },
+            { "as", to_select("@local.scope", "locals"),            mode = { "x", "o" },      desc = "Select scope" },
+        },
     },
     {
         "windwp/nvim-ts-autotag",
@@ -83,5 +116,5 @@ return {
                 desc = 'Split recursively (treesj)'
             },
         }
-    }
+    },
 }
