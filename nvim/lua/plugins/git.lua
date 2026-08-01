@@ -1,3 +1,15 @@
+vim.keymap.set('n', '<leader>qc', function()
+    local files = vim.fn.systemlist('git diff --name-only --diff-filter=U')
+    if #files == 0 then
+        vim.notify('No conflict files found', vim.log.levels.INFO)
+        return
+    end
+    vim.fn.setqflist(vim.tbl_map(function(f)
+        return { filename = f }
+    end, files))
+    vim.cmd('copen')
+end, { desc = 'Open git conflict files in quickfix' })
+
 return
 {
     {
