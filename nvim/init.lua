@@ -69,6 +69,15 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], { noremap = true })
 
 
+-- 外部でファイルが変更されたら自動読み込み
+vim.o.autoread = true
+
+-- Neovim にフォーカスが戻ったときに変更をチェック
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+    pattern = "*",
+    command = "if mode() != 'c' | checktime | endif",
+})
+
 -- 競プロディレクトリ以下の新規 .cpp ファイルにのみテンプレートを適用
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = "*.cpp",
