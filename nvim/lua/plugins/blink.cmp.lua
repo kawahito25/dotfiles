@@ -3,7 +3,6 @@ return {
     'saghen/blink.cmp',
     version = '*',
     dependencies = {
-        -- { "giuxtaposition/blink-cmp-copilot" },
         { 'disrupted/blink-cmp-conventional-commits' },
         { "marcoSven/blink-cmp-yanky" },
         {
@@ -54,12 +53,6 @@ return {
         sources = {
             default = { "lsp", "path", "snippets", "buffer", 'conventional_commits', 'omni', 'yank' },
             providers = {
-                -- copilot = {
-                --     name = "copilot",
-                --     module = "blink-cmp-copilot",
-                --     score_offset = 100,
-                --     async = true,
-                -- },
                 conventional_commits = {
                     name = "conventional_commits",
                     module = "blink-cmp-conventional-commits",
