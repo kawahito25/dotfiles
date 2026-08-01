@@ -81,6 +81,7 @@ return
                 mode = { "v" },
                 desc = "Reset Current Hunks"
             },
+            { 'ih', ':<C-U>Gitsigns select_hunk<CR>', mode = { 'o', 'x' }, desc = 'GitSigns Select Hunk' },
         },
     }
 }
