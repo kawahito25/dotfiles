@@ -69,31 +69,6 @@ return
                 mode = { "v" },
                 desc = "Reset Current Hunks"
             },
-            -- Navigation
-            {
-                ']h',
-                function()
-                    if vim.wo.diff then
-                        vim.cmd.normal({ ']c', bang = true })
-                    else
-                        require('gitsigns').nav_hunk('next', { target = "all" })
-                    end
-                end,
-                mode = { "n" },
-                desc = "next hunk"
-            },
-            {
-                '[h',
-                function()
-                    if vim.wo.diff then
-                        vim.cmd.normal({ '[c', bang = true })
-                    else
-                        require('gitsigns').nav_hunk('prev', { target = "all" })
-                    end
-                end,
-                mode = { "n" },
-                desc = "prev hunk"
-            }
         },
     }
 }
