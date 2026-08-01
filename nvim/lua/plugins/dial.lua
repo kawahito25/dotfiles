@@ -20,7 +20,7 @@ return {
                 augend.constant.new({ elements = { "if", "unless" }, word = true, cyclic = true }),
             }, default)
         }
-        vim.keymap.set("n", "<C-e>", require("dial.map").inc_normal(), { noremap = true })
+        vim.keymap.set("n", "<C-a>", require("dial.map").inc_normal(), { noremap = false })
         vim.keymap.set("n", "<C-x>", require("dial.map").dec_normal(), { noremap = true })
     end
 }
