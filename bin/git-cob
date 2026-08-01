@@ -5,6 +5,7 @@
 set -e
 
 base_name=""
+default_prefix="kawahito/"
 
 # 1. Parse Options (-p prefix)
 while getopts "p:" opt; do
@@ -19,39 +20,24 @@ if [ -z "$base_name" ]; then
     fmt='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) | %(color:green)%(committerdate:relative)%(color:reset) | %(color:blue)%(authordate:short)%(color:reset)'
 
     selected=$( (git branch --sort=-committerdate --format="$fmt" --color=always | column -ts '|' | \
-        fzf --ansi --no-multi --height 40% --query="kawahito/" --tiebreak=index \
-            --header 'Select a base branch name to copy/edit (Or just press Enter to start fresh)' \
+        fzf --ansi --no-multi --height 40% --query="$default_prefix" --tiebreak=index \
+            --header 'Select a base branch name to copy/edit (Or press ESC to input manually)' \
             --bind 'start:deselect' \
             || true) | awk '{print ($1=="*" ? $2 : $1)}')
 
-    base_name="${selected:-kawahito/}"
+    base_name="${selected:-$default_prefix}"
 fi
 
-# 3. Pure Bash Interactive Prompt
-printf "Create new branch: %s" "$base_name"
-new_branch="$base_name"
-
-while IFS= read -r -s -n1 c; do
-    if [ -z "$c" ]; then       # Enter
-        printf "\n"
-        break
-    elif [[ "$c" == $'\x7f' || "$c" == $'\x08' ]]; then # Backspace
-        if [ ${#new_branch} -gt 0 ]; then
-            new_branch="${new_branch%?}"
-            printf "\b \b"
-        fi
-    elif [[ "$c" == $'\x03' ]]; then # Ctrl+C
-        printf "\n"
-        new_branch=""
-        break
-    else                        # Input character
-        new_branch+="$c"
-        printf "%s" "$c"
-    fi
-done
+# 3. fzf を使った「編集・入力フォーム」
+new_branch=$(echo "" | fzf --print-query \
+    --query="$base_name" \
+    --height 20% \
+    --header 'Edit or type the new branch name (Press Enter to confirm, ESC to cancel)' \
+    --bind 'enter:accept' \
+    | head -n1)
 
 # 4. Validation & Checkout
-if [ -z "$new_branch" ] || [ "$new_branch" = "kawahito/" ] || [[ "$new_branch" == *"_" ]]; then
+if [ -z "$new_branch" ] || [ "$new_branch" = "$default_prefix" ] || [[ "$new_branch" == *"_" ]]; then
     echo "Aborted. (Invalid or incomplete branch name)"
     exit 0
 fi
