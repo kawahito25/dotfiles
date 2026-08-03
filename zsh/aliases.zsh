@@ -21,6 +21,7 @@ alias gr='git restore'
 
 alias ls='eza -F --icons=auto'
 alias tree='ls -T'
+alias m='make'
 alias nv='nvim'
 
 
