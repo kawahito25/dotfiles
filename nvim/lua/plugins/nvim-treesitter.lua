@@ -56,7 +56,6 @@ return {
             { "ic", to_select("@class.inner"),                      mode = { "x", "o" },      desc = "Select inner class" },
             { "ag", to_select("@conditional.outer"),                mode = { "x", "o" },      desc = "Select outer conditional" },
             { "ig", to_select("@conditional.inner"),                mode = { "x", "o" },      desc = "Select inner conditional" },
-            { "ar", to_select({ "@loop.outer", "@loop.inner" }),    mode = { "x", "o" },      desc = "Select repeat/loop" },
             { "as", to_select("@local.scope", "locals"),            mode = { "x", "o" },      desc = "Select scope" },
         },
     },
