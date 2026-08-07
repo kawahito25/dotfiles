@@ -28,19 +28,30 @@ end
 
 return {
     "kiyoon/repeatable-move.nvim",
-    keys = { ";", ",", "]h", "[h", "]f", "[f" },
+    keys = { ";", ",", "]h", "[h", "]f", "[f", "]r", "[r" },
     dependencies = {
         "nvim-treesitter/nvim-treesitter-textobjects",
         "lewis6991/gitsigns.nvim",
+        "RRethy/vim-illuminate"
     },
     config = function()
         local repeatable_move = require("repeatable_move")
         local ts_repeat_move = require("nvim-treesitter-textobjects.repeatable_move")
         local make_pair = repeatable_move.make_repeatable_move_pair
 
+        local illuminate = require("illuminate")
+        local next_ref, prev_ref = repeatable_move.make_repeatable_move_pair(
+            function() illuminate.goto_next_reference(true) end,
+            function() illuminate.goto_prev_reference(true) end
+        )
+
         -- ; と , でリピートできるようにマッピング
         vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
         vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+
+        -- illuminate
+        vim.keymap.set({ "n", "x", "o" }, "]r", next_ref, { desc = "Next Reference (Illuminate)" })
+        vim.keymap.set({ "n", "x", "o" }, "[r", prev_ref, { desc = "Prev Reference (Illuminate)" })
 
         -- Hunk (]h / [h)
         local next_hunk, prev_hunk = make_pair(hunk_next, hunk_prev)
