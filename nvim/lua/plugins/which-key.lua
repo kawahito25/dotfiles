@@ -13,10 +13,8 @@ return {
         },
         spec = {
             mode = { "n", "x" },
-            { "<leader>a", group = "AI", icon = { icon = '󱙺', color = 'azure' } },
-            { "<leader>A", group = "Alternate", icon = { icon = '', color = 'cyan' } },
-            { "<leader>c", group = "Code" },
-            { "<leader>g", group = "Git", icon = { cat = "filetype", name = "git" } },
+            { "<leader>c", group = "Choose" },
+            { "<leader>g", group = "Go" },
             { "<leader>f", group = "Find" },
             { "<leader>h", group = "Hunk", icon = { icon = "", color = "cyan" } },
             { "<leader>o", group = "Open", icon = { icon = '󰏌', color = "blue" } },
@@ -24,7 +22,6 @@ return {
             { "<leader>q", group = "Quickfix", icon = { icon = "󰷐", color = "orange" } },
             { "<leader>s", group = "Search" },
             { "<leader>u", group = "UI" },
-            { "<leader>w", group = "Session" },
         },
         -- default: https://github.com/folke/which-key.nvim/blob/3aab2147e74890957785941f0c1ad87d0a44c15a/lua/which-key/icons.lua#L16
         icons = {
