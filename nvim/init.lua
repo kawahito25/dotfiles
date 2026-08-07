@@ -68,6 +68,10 @@ vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = 'LS
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true })
 vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], { noremap = true })
 
+-- my nav
+vim.keymap.set("n", "<leader>ga", function()
+  require("my_nav").handler()
+end, { silent = true, desc = "My custom navigation" })
 
 -- 外部でファイルが変更されたら自動読み込み
 vim.o.autoread = true
