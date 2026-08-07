@@ -53,12 +53,28 @@ vim.keymap.set('n', '<leader>un', function()
 end, { desc = "Toggle line numbers" })
 vim.keymap.set("n", "<leader>ur", "<cmd>nohlsearch|diffupdate|normal! <C-L><cr>", { desc = "Redraw Screen" })
 
--- ファイル書き込み前 (BufWritePre) に、末尾の空白を削除するコマンドを実行
+
 local group = vim.api.nvim_create_augroup("TidyOnWrite", { clear = true })
+
+-- ファイル書き込み前に、行末の空白と末尾の不要な空行を削除
 vim.api.nvim_create_autocmd("BufWritePre", {
     group = group,
     pattern = "*", -- すべてのファイルタイプに対して実行
-    command = [[%s/\s\+$//e]],
+    callback = function()
+        local save_cursor = vim.fn.getpos(".")
+        vim.cmd([[keeppatterns %s/\s\+$//e]])             -- 行末の空白
+        vim.cmd([[keeppatterns %s/\%(\$\n\s*\)\+\%$//e]]) -- ファイル末尾の空行
+        vim.fn.setpos(".", save_cursor)
+    end,
+})
+
+-- 全角スペースをハイライト
+vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufRead" }, {
+    group = group,
+    pattern = "*",
+    callback = function()
+        vim.fn.matchadd("ZenkakuSpace", "　")
+    end,
 })
 
 -- LSP code action のキーマップを追加（デフォルトでは gra にマッピングされている）
@@ -70,7 +86,7 @@ vim.keymap.set('t', '<C-[>', [[<C-\><C-n>]], { noremap = true })
 
 -- my nav
 vim.keymap.set("n", "<leader>ga", function()
-  require("my_nav").handler()
+    require("my_nav").handler()
 end, { silent = true, desc = "My custom navigation" })
 
 -- 外部でファイルが変更されたら自動読み込み
