@@ -10,7 +10,18 @@ vim.lsp.config('ts_ls', {
     end,
 })
 
-vim.lsp.enable({ 'clangd', 'eslint', 'gopls', 'lua_ls', 'ruby_lsp', 'sorbet', 'syntax_tree', 'ts_ls', 'typos_lsp' })
+vim.lsp.enable({
+    'clangd',
+    'eslint',
+    'gopls',
+    'lua_ls',
+    'ruby_lsp',
+    'sorbet',
+    'syntax_tree',
+    'ts_ls',
+    'typos_lsp',
+    'yamlls'
+})
 
 -- ==============================================================================
 -- Git Conflict & LSP Diagnostics Integration
