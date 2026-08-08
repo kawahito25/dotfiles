@@ -98,6 +98,26 @@ vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHo
     command = "if mode() != 'c' | checktime | endif",
 })
 
+-- インデント間の移動
+local function move_same_indent(forward)
+    local current_line = vim.fn.line('.')
+    local current_indent = vim.fn.indent(current_line)
+    local last_line = vim.fn.line('$')
+    local step = forward and 1 or -1
+    local target_line = current_line + step
+
+    while target_line > 0 and target_line <= last_line do
+        local line_content = vim.fn.getline(target_line)
+        if vim.fn.match(line_content, '^%s*$') == -1 and vim.fn.indent(target_line) == current_indent then
+            vim.fn.cursor(target_line, vim.fn.col('.'))
+            break
+        end
+        target_line = target_line + step
+    end
+end
+vim.keymap.set('n', '<Tab>', function() move_same_indent(true) end, { desc = 'Next line with same indent' })
+vim.keymap.set('n', '<S-Tab>', function() move_same_indent(false) end, { desc = 'Prev line with same indent' })
+
 -- 競プロディレクトリ以下の新規 .cpp ファイルにのみテンプレートを適用
 vim.api.nvim_create_autocmd("BufNewFile", {
     pattern = "*.cpp",
