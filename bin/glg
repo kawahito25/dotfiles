@@ -21,6 +21,5 @@ eval "$git_cmd" | fzf \
     --header "Ctrl-o: Open in Browser | Ctrl-u/d: Scroll Page | Ctrl-y: Copy Hash" \
     --preview 'git show --color=always {1} | delta --width=$FZF_PREVIEW_COLUMNS --paging=never' \
     --preview-window 'up:75%,wrap' \
-    --bind "ctrl-u:preview-half-page-up,ctrl-d:preview-half-page-down" \
     --bind "ctrl-o:execute-silent(gh browse {1} > /dev/null 2>&1 &)" \
     --bind "ctrl-y:execute-silent(echo -n {1} | pbcopy)"

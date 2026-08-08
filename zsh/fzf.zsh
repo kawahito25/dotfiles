@@ -10,7 +10,7 @@ source $DOTFILES_DIR/submodules/fzf-tab/fzf-tab.plugin.zsh
 zstyle ':fzf-tab:*' fzf-flags ${(z)FZF_DEFAULT_OPTS} # @see https://github.com/Aloxaf/fzf-tab/issues/475#issuecomment-2402904112
 
 # append full screen options
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --style full --bind 'ctrl-u:half-page-up,ctrl-d:half-page-down'"
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --reverse --height 100% --style full --bind 'ctrl-b:preview-half-page-up,ctrl-f:preview-half-page-down'"
 
 # use fd as default
 export FZF_DEFAULT_COMMAND='fd --type f'
