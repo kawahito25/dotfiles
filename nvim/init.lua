@@ -38,6 +38,10 @@ vim.keymap.set('n', '<C-W>\\', '<Cmd>vsplit<CR>', { silent = true, desc = 'Verti
 vim.keymap.set('n', '<C-W>-', '<Cmd>split<CR>', { silent = true, desc = 'Horizontal Split (custom)' })
 vim.keymap.set('n', '<C-W>x', '<C-W>q', { silent = true, desc = 'Quit a window (custom)' })
 
+vim.keymap.del("n", "<C-w>d")
+vim.keymap.set("n", "<C-w>u", function() vim.cmd("resize +15") end, { desc = "Increase window height" })
+vim.keymap.set("n", "<C-w>d", function() vim.cmd("resize -15") end, { desc = "Decrease window height" })
+
 -- 現在のファイルのフルパスをコピー
 vim.keymap.set('n', '<leader>y', ':let @+ = expand("%:.") . ":" . line(".")<CR>',
     { silent = true, desc = 'yank relative path with linenumber' }

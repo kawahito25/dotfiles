@@ -4,7 +4,7 @@ return {
         ft = "qf",
         opts = {
             on_qf = function(bufnr)
-                vim.keymap.set("n", "<leader>qe", function()
+                vim.keymap.set("n", "ze", function()
                     require("quicker").toggle_expand({ before = 2, after = 2, add_to_existing = true })
                 end, {
                     buffer = bufnr,
@@ -28,14 +28,19 @@ return {
     },
     {
         "kevinhwang91/nvim-bqf",
-        dependencies = {
-            { "junegunn/fzf", build = "./install --bin" },
-        },
         ft = "qf",
         opts = {
             preview = {
+                auto_preview = false,
                 winblend = 0,
             },
+            func_map = {
+                ptoggleitem = "",
+                ptoggleauto = "zp",
+                filter      = "",
+                filterr     = "",
+                fzffilter   = "",
+            }
         }
     },
 }
