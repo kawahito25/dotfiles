@@ -28,10 +28,14 @@ M.patterns = {
         if (vim.bo.filetype == "ruby" or vim.bo.filetype == "eruby") and filepath:match("app/models/") then
             local schema_path = root .. "/db/schema.rb"
             if vim.fn.filereadable(schema_path) == 1 then
-                local table_name = vim.fn.expand("%:t:r") .. "s"
+                local model_name = vim.fn.expand("%:t:r"):lower()
+                local table_name = model_name .. "s"
+
                 vim.cmd("edit " .. schema_path)
                 vim.fn.cursor(1, 1)
-                vim.fn.search('create_table.*\\zs' .. table_name, 'w')
+
+                local pattern = [[create_table\s\+["']\zs]] .. table_name .. [=[["']]=]
+                vim.fn.search(pattern, 'w')
             end
             return true
         end
