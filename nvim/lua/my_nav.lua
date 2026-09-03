@@ -59,6 +59,43 @@ M.patterns = {
             return true
         end
     end,
+
+    function(filepath, _)
+        local controller_path = filepath:match("app/controllers/(.+)_controller%.rb")
+        if controller_path then
+            local cmd = { "bundle", "exec", "rails", "routes", "-c", controller_path }
+
+            vim.system(cmd, { text = true }, function(obj)
+                if obj.code ~= 0 then
+                    vim.schedule(function()
+                        vim.notify("Failed to execute rails routes", vim.log.levels.ERROR)
+                    end)
+                    return
+                end
+
+                local lines = vim.split(obj.stdout, "\n", { trimempty = true })
+                if #lines == 0 then
+                    table.insert(lines, "No routes found for controller: " .. controller_path)
+                end
+
+                vim.schedule(function()
+                    local buf = vim.api.nvim_create_buf(false, true)
+                    vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
+
+                    vim.bo[buf].modifiable = false
+                    vim.bo[buf].filetype = "railtmux"
+
+                    vim.cmd("split")
+                    local win = vim.api.nvim_get_current_win()
+                    vim.api.nvim_win_set_buf(win, buf)
+
+                    local target_height = math.min(math.max(#lines, 4), 15)
+                    vim.api.nvim_win_set_height(win, target_height)
+                end)
+            end)
+            return true
+        end
+    end,
 }
 
 local ok, local_nav = pcall(require, "my_nav_local")
